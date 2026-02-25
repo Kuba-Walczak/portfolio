@@ -29,12 +29,15 @@ export function SingleProject({ project }: { project: Project }) {
   return (
         <div
           key={project.id}
-          className={`min-w-[350px] max-w-[550px] flex-shrink-0 overflow-hidden rounded-2xl border-1 hover:bg-white/5 cursor-pointer transition-all duration-100 ${
-            isSelected 
-              ? 'ring-primary border-primary bg-white/5' 
-              : 'ring-white/10 hover:ring-primary/50 hover:border-primary/50'
+          className={`relative min-w-[350px] max-w-[550px] h-[420px] flex flex-col flex-shrink-0 overflow-hidden rounded-2xl border-1 transition-all duration-100 ${
+            project.status === 'coming-soon'
+              ? 'opacity-20 pointer-events-none'
+              : isSelected
+                ? 'ring-primary border-primary bg-white/5 cursor-pointer hover:bg-white/5'
+                : 'ring-white/10 hover:ring-primary/50 hover:border-primary/50 hover:bg-white/5 cursor-pointer'
           }`}
           onClick={() => {
+            if (project.status === 'coming-soon') return
             if (isSelected) {
               setSelectedProject(null)
               setProjectView(false)
@@ -58,7 +61,7 @@ export function SingleProject({ project }: { project: Project }) {
           }}
           >
         {/* Header */}
-        <div className="h-58 overflow-hidden">
+        <div className="flex-1 overflow-hidden min-h-0">
             <img
               src={project.card.thumbnail || "/placeholder.svg"}
               alt={project.title}
@@ -74,7 +77,7 @@ export function SingleProject({ project }: { project: Project }) {
             />
           </div>
         {/* Content */}
-        <div className="p-6">
+        <div className="p-6 shrink-0">
           <div className="flex items-center gap-2">
           <h3 className="text-xl font-semibold text-card-foreground">
             {project.title}
@@ -85,8 +88,7 @@ export function SingleProject({ project }: { project: Project }) {
               return (
                 <Badge
                   key={tagObject.id}
-                  variant={tagObject.style as "programming" | "technicalArt" | "art"}
-                  className="bg-secondary text-secondary-foreground"
+                  variant={tagObject.style as "programming" | "technicalArt" | "art" | "comingSoon"}
                 >
                   {tagObject.title}
                 </Badge>
@@ -98,16 +100,13 @@ export function SingleProject({ project }: { project: Project }) {
           </p>
         </div>
         {/* Footer */}
-        <div className="flex gap-2 border-t border-border px-6 py-4">
-        {project.laptop.techStack.map((tech) => (
-                <Badge
-                  key={tech}
-                  variant="secondary"
-                  className="bg-secondary text-secondary-foreground"
-                >
-                  {tech}
-                </Badge>
-              ))}
+        <div className="flex gap-2 border-t border-border px-6 py-4 shrink-0">
+          {project.laptop.techStack.map((tech) => (
+            <Badge key={tech} variant="secondary">{tech}</Badge>
+          ))}
+          {project.status === 'coming-soon' && (
+            <Badge variant="comingSoon" className="ml-auto">Coming Soon</Badge>
+          )}
         </div>
       </div>
   )

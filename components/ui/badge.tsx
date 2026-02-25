@@ -12,13 +12,15 @@ const badgeVariants = cva(
         default:
           "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+          "border-transparent bg-white/5 backdrop-blur-sm",
         programming:
-          "border-transparent bg-sky-500 text-white [a&]:hover:bg-sky-500/90 focus-visible:ring-sky-500/20 dark:focus-visible:ring-sky-500/40 dark:bg-sky-500/70",
+          "border-transparent bg-sky-500/50 backdrop-blur-sm",
         technicalArt:
-          "border-transparent bg-violet-500 text-white [a&]:hover:bg-violet-500/90 focus-visible:ring-violet-500/20 dark:focus-visible:ring-violet-500/40 dark:bg-violet-500/70",
+          "border-transparent bg-violet-500/50 backdrop-blur-sm",
+        comingSoon:
+          "border-transparent bg-gray-500/50 backdrop-blur-sm",
         art:
-          "border-transparent bg-rose-500 text-white [a&]:hover:bg-rose-500/90 focus-visible:ring-rose-500/20 dark:focus-visible:ring-rose-500/40 dark:bg-rose-500/70",
+          "border-transparent bg-rose-500/50 backdrop-blur-sm",
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
       },

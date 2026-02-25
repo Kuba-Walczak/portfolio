@@ -8,7 +8,6 @@ import { MousePointerClickIcon } from 'lucide-react'
 export default function Projects() {
   const { projects } = useApp()
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const [projectsOpen, setProjectsOpen] = useState(true)
   const toggleCategory = (category: string) => {
     setSelectedCategories(prev =>
       prev.includes(category)
@@ -29,7 +28,6 @@ export default function Projects() {
     id="projects"
     className="mx-auto scroll-mt-20"
     style={{ maxWidth: 'calc(100vh * 1.2)' }}>
-    {projectsOpen && (
     <div
     className="flex flex-col gap-16 p-16 border rounded-2xl backdrop-blur-xl bg-white/5 dark:bg-gradient-to-b from-transparent to-transparent">
       <div className="relative flex items-center">
@@ -47,7 +45,6 @@ export default function Projects() {
         ))}
       </div>
     </div>
-    )}
     </section>
   )
 }

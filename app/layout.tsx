@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppProvider } from '@/contexts/AppContext'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import './globals.css'
 import Background from '@/components/Background'
 
@@ -41,7 +42,9 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`font-sans antialiased`}>
         <AppProvider>
-          {children}
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
           <Analytics />
         </AppProvider>
       </body>

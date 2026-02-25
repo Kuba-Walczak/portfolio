@@ -19,6 +19,11 @@ export const Tag = {
         id: '3',
         style: 'art',
         title: '3D Art'
+    },
+    COMING_SOON: {
+        id: '4',
+        style: 'comingSoon',
+        title: 'Coming Soon'
     }
 } as const satisfies Record<string, Tag>;
 

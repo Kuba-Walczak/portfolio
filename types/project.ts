@@ -1,5 +1,6 @@
 export interface Project {
     id: string;
+    status: 'ready' | 'coming-soon';
     title: string;
     card: ProjectCard;
     laptop: ProjectLaptop;

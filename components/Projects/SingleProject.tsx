@@ -29,9 +29,9 @@ export function SingleProject({ project }: { project: Project }) {
   return (
         <div
           key={project.id}
-          className={`relative min-w-[350px] max-w-[550px] h-[420px] flex flex-col flex-shrink-0 overflow-hidden rounded-2xl border-1 transition-all duration-100 ${
+          className={`relative min-w-[350px] max-w-[550px] h-[420px] flex flex-col flex-shrink-0 overflow-hidden rounded-2xl border transition-all duration-100 ${
             project.status === 'coming-soon'
-              ? 'opacity-20 pointer-events-none'
+              ? 'pointer-events-none'
               : isSelected
                 ? 'ring-primary border-primary bg-white/5 cursor-pointer hover:bg-white/5'
                 : 'ring-white/10 hover:ring-primary/50 hover:border-primary/50 hover:bg-white/5 cursor-pointer'
@@ -61,11 +61,11 @@ export function SingleProject({ project }: { project: Project }) {
           }}
           >
         {/* Header */}
-        <div className="flex-1 overflow-hidden min-h-0">
+        <div className="relative flex-1 overflow-hidden min-h-0">
             <img
               src={project.card.thumbnail || "/placeholder.svg"}
               alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${project.status === 'coming-soon' ? 'grayscale' : ''}`}
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
                 e.currentTarget.parentElement!.classList.add('flex', 'items-center', 'justify-center')
@@ -75,6 +75,12 @@ export function SingleProject({ project }: { project: Project }) {
                 e.currentTarget.parentElement!.appendChild(placeholder)
               }}
             />
+            {project.status === 'coming-soon' && (
+              <>
+                <div className="absolute inset-0 bg-gray-900/95 opacity-90 grayscale"/>
+                <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-5xl font-bold z-20 opacity-10 text-nowrap">COMING SOON</p>
+              </>
+            )}
           </div>
         {/* Content */}
         <div className="p-6 shrink-0">
@@ -104,9 +110,6 @@ export function SingleProject({ project }: { project: Project }) {
           {project.laptop.techStack.map((tech) => (
             <Badge key={tech} variant="secondary">{tech}</Badge>
           ))}
-          {project.status === 'coming-soon' && (
-            <Badge variant="comingSoon" className="ml-auto">Coming Soon</Badge>
-          )}
         </div>
       </div>
   )

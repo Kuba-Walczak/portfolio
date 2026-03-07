@@ -28,8 +28,7 @@ export default function Projects() {
     id="projects"
     className="mx-auto scroll-mt-20"
     style={{ maxWidth: 'calc(100vh * 1.2)' }}>
-    <div
-    className="flex flex-col gap-16 p-16 border rounded-2xl backdrop-blur-xl bg-white/5 dark:bg-gradient-to-b from-transparent to-transparent">
+    <div className="flex flex-col gap-16 p-16 border rounded-2xl backdrop-blur-xl bg-white/5 dark:bg-gradient-to-b from-transparent to-transparent">
       <div className="relative flex items-center">
       <h2 className="text-5xl font-semibold opacity-25 text-muted-foreground">
         Projects
@@ -39,7 +38,7 @@ export default function Projects() {
         <MousePointerClickIcon size={64}/>
       </h1>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8 gap-y-10">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8">
         {filteredProjects?.map((project) => (
           <SingleProject key={project.id} project={project}/>
         ))}

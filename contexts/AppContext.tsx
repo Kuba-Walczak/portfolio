@@ -32,7 +32,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [selectedContent, setSelectedContent] = useState<GalleryContent | null>(null)
   const [heroVideoGlowRef, setHeroVideoGlowRef] = useState<HTMLDivElement | null>(null)
   useEffect(() => {
-    fetchProjects('/projects.json').then(setProjects).catch(console.error)
+    const fetchAndUpdate = () => {
+      fetchProjects('/projects.json').then(setProjects).catch(console.error)
+    }
+    fetchAndUpdate()
+    const interval = setInterval(fetchAndUpdate, 1000)
+    return () => clearInterval(interval)
   }, [])
 
   const value: AppContextType = {

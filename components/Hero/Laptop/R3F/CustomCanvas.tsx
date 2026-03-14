@@ -10,9 +10,9 @@ export function CustomCanvas({ children }: { children: React.ReactNode }) {
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0)
       }}>
-        <ambientLight intensity={Math.PI / 2}/>
+        {/* <ambientLight intensity={Math.PI / 2}/>
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI}/>
-        <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI}/>
+        <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI}/> */}
         {children}
         {/* <EffectComposer>
           <DepthOfField focusDistance={4} focalLength={0.75}/>

@@ -16,6 +16,7 @@ type GLTFResult = {
     LaptopBase: THREE.Mesh
     LaptopDisplay: THREE.Mesh
     LaptopLetterboxing: THREE.Mesh
+    LaptopScreen: THREE.Mesh
   }
   materials: Record<string, THREE.Material>
 }
@@ -51,9 +52,9 @@ function ModelContent(props: any) {
     
     const scrollY = useScroll()
 
-    const { nodes } = useGLTF(`https://PortfolioPullZone.b-cdn.net/temp-name/r3f.glb?t=7`) as unknown as GLTFResult
+    const { nodes } = useGLTF(`laptop.glb`) as unknown as GLTFResult
 
-    const texture = useLoader(TextureLoader, 'https://PortfolioPullZone.b-cdn.net/temp-name/Bake.png')
+    const texture = useLoader(TextureLoader, 'Bake.png')
     texture.flipY = false
     texture.colorSpace = THREE.SRGBColorSpace
     texture.minFilter = THREE.LinearFilter
@@ -93,19 +94,19 @@ function ModelContent(props: any) {
     const STAGE_2_START = 0.2
     const STAGE_3_START = 0.4
 
-    const stage1Root: Vector6D = new Vector6D(0.25, -0.15, -2, -160 / 180 * Math.PI, 20 / 180 * Math.PI, Math.PI)
+    const stage1Root: Vector6D = new Vector6D(0.25, -0.15, -3, -160 / 180 * Math.PI, 20 / 180 * Math.PI, Math.PI)
     const stage1Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, 2.007, 0, 0)
 
-    const stage2Root: Vector6D = new Vector6D(0, -0.2, -1, -180 / 180 * Math.PI, 0, Math.PI)
-    const stage2Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, Math.PI / 4, 0, 0)
+    const stage2Root: Vector6D = new Vector6D(0, -0.15, -1.5, -170 / 180 * Math.PI, 0, Math.PI)
+    const stage2Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, Math.PI / 2, 0, 0)
 
-    const stage3Root: Vector6D = new Vector6D(0, -0.17, -0.2, -185 / 180 * Math.PI, 0, Math.PI)
+    const stage3Root: Vector6D = new Vector6D(0, -0.16, -0.2, -185 / 180 * Math.PI, 0, Math.PI)
     const stage3Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
 
-    const stage1RootAlt = new Vector6D(0, -0.1631, -0.3, -180 / 180 * Math.PI, 0, Math.PI)
-    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, Math.PI / 2, 0, 0)
+    const stage1RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
+    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, 85 / 180 * Math.PI, 0, 0)
 
-    const stage2RootAlt = new Vector6D(0, -0.17, -0.2, -185 / 180 * Math.PI, 0, Math.PI)
+    const stage2RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
     const stage2HingeAlt = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
 
     const getTargetValues = (progress: number) => {
@@ -253,21 +254,48 @@ function ModelContent(props: any) {
           if (scrollY === 0 && projectView) setLaptopReady(true)
         }
       })
+      console.log(scrollY)
     }, [scrollY, projectView])
 
     const shaderTest = useCustomShader(texture)
 
     return (
       <group {...props} dispose={null}>
-        <group ref={rootRef} position={[0.2, -0.125, -0.6]} rotation={[-160 / 180 * Math.PI, 30 / 180 * Math.PI, Math.PI]}>
-          <mesh geometry={nodes.LaptopBase.geometry} material={new THREE.MeshBasicMaterial({ map: texture })} position={[0, 0.024, 0.138]}>
-            <group ref={laptopHingeRef} position={[0, -0.003, -0.009]} rotation={[2.007, 0, 0]}>
-              <mesh geometry={nodes.LaptopDisplay.geometry} material={new THREE.MeshBasicMaterial({ map: texture })} position={[0, 0.003, 0.009]} />
-              <mesh ref={laptopScreenRef} geometry={nodes.LaptopLetterboxing.geometry} material={laptopScreenMaterial} position={[0, 0, 0.009]} />
-            </group>
-          </mesh>
-        </group>
+  <group
+    ref={rootRef}
+    position={[0, -0.163, 0.3]}
+    rotation={[Math.PI, 0, Math.PI]}
+  >
+    <mesh
+      geometry={nodes.LaptopBase.geometry}
+      material={new THREE.MeshBasicMaterial({ map: texture })}
+      position={[0, 0.024, 0.138]}
+    >
+      <group
+        ref={laptopHingeRef}
+        position={[0, -0.003, -0.009]}
+        rotation={[Math.PI / 2, 0, 0]}
+      >
+        <mesh
+          geometry={nodes.LaptopDisplay.geometry}
+          material={new THREE.MeshBasicMaterial({ map: texture })}
+          position={[0, 0.003, 0.009]}
+        />
+        <mesh
+          geometry={nodes.LaptopLetterboxing.geometry}
+          material={new THREE.MeshBasicMaterial({ color: 0x000000 })}
+          position={[0, 0, 0.009]}
+        />
+        <mesh
+          ref={laptopScreenRef}
+          geometry={nodes.LaptopScreen.geometry}
+          material={laptopScreenMaterial}
+          position={[0, 0.005, -0.157]}
+        />
       </group>
+    </mesh>
+  </group>
+</group>
     )
 }
 

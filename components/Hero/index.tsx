@@ -14,7 +14,6 @@ export default function Hero() {
   const { projectView, laptopReady } = useApp()
   const scrollY = useScroll()
   const translateX = scrollY * 4000
-  const scale = 1 - scrollY * 2
 
   const handleScroll = (id: string) => {
     const element = document.getElementById(id)
@@ -50,8 +49,7 @@ export default function Hero() {
       <div 
         className={`w-fit transition-transform duration-100 ease-out ${scrollY > 0.19 || projectView ? 'hidden' : ''}`}
         style={{
-          transform: `translateX(${translateX}px) translateY(${translateX / 2}px)`,
-          scale: scale
+          transform: `translateX(${translateX}px)`,
         }}
       >
         <div className="flex flex-row gap-8">

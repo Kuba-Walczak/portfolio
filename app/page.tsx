@@ -34,12 +34,27 @@ export default function Home() {
     const scrollTrigger = ScrollTrigger.create({
       trigger: wrapperRef.current,
       start: 'top top',
-      end: "+=50%",
+      end: () => {
+        // return a relative pixel offset equal to 20% of the total scrollable height
+        return `+=${Math.round(calculateEnd())}`
+      },
       pin: true
     })
 
+    // ensure ScrollTrigger recalculates after load/resize/assets
+    const onLoad = () => ScrollTrigger.refresh()
+    window.addEventListener('load', onLoad)
+    // refresh now in case layout is already stable
+    ScrollTrigger.refresh()
+
+    window.scrollTo(0, 1000)
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 1000)
+
     return () => {
       scrollTrigger.kill()
+      window.removeEventListener('load', onLoad)
     }
   }, [])
   

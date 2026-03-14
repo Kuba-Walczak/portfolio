@@ -104,7 +104,7 @@ function ModelContent(props: any) {
     const stage3Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
 
     const stage1RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
-    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, 85 / 180 * Math.PI, 0, 0)
+    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, Math.PI / 2, 0, 0)
 
     const stage2RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
     const stage2HingeAlt = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
@@ -254,7 +254,6 @@ function ModelContent(props: any) {
           if (scrollY === 0 && projectView) setLaptopReady(true)
         }
       })
-      console.log(scrollY)
     }, [scrollY, projectView])
 
     const shaderTest = useCustomShader(texture)

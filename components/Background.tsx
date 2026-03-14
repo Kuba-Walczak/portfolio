@@ -4,7 +4,7 @@ export default function Background() {
   const { setHeroVideoGlowRef } = useApp()
   return (
     <div
-      className="absolute inset-0 overflow-hidden pointer-events-none -z-10 h-[250vh]"
+      className="absolute inset-0 overflow-hidden pointer-events-none -z-10"
       aria-hidden="true"
       style={{
         background: `
@@ -15,8 +15,7 @@ export default function Background() {
           radial-gradient(circle 450px at -5% 38%, rgba(99, 102, 241, 0.15) 0%, transparent 70%),
           radial-gradient(circle 925px at 25% 105%, rgba(255, 0, 0, 0.32) 0%, transparent 80%),
           radial-gradient(circle 925px at 108% 105%, rgba(127, 90, 187, 0.32) 0%, transparent 80%),
-          radial-gradient(circle 325px at 98% 56%, rgba(168, 85, 247, 0.175) 0%, transparent 70%),
-          black
+          radial-gradient(circle 325px at 98% 56%, rgba(168, 85, 247, 0.175) 0%, transparent 70%)
         `,
       }}
     >

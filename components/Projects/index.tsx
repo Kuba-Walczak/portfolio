@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { useApp } from '@/contexts/AppContext'
 import { SingleProject } from './SingleProject'
 import { MousePointerClickIcon } from 'lucide-react'
@@ -28,17 +28,15 @@ export default function Projects() {
     id="projects"
     className="mx-auto scroll-mt-20"
     style={{ maxWidth: 'calc(100vh * 1.2)' }}>
-    <div className="flex flex-col gap-16 p-16 border rounded-2xl backdrop-blur-xl bg-white/5 dark:bg-gradient-to-b from-transparent to-transparent">
-      <div className="relative flex items-center">
-      <h2 className="text-5xl font-semibold opacity-25 text-muted-foreground">
-        Projects
-      </h2>
-      <h1 className="absolute left-1/2 -translate-x-1/2 font-semibold text-muted-foreground text-7xl opacity-10 flex items-center gap-4">
+    <div
+    className="flex flex-col gap-16 p-8 pt-16 border rounded-2xl backdrop-blur-xl bg-white/3 dark:bg-gradient-to-b from-transparent to-transparent">
+      <div className="relative items-center hidden md:flex">
+      <h1 className="absolute left-1/2 -translate-x-1/2 font-semibold text-muted-foreground text-4xl lg:text-7xl opacity-10 flex items-center gap-4 whitespace-nowrap">
         Click to view
-        <MousePointerClickIcon size={64}/>
+        <MousePointerClickIcon className="w-8 h-8 lg:w-16 lg:h-16"/>
       </h1>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8">
         {filteredProjects?.map((project) => (
           <SingleProject key={project.id} project={project}/>
         ))}

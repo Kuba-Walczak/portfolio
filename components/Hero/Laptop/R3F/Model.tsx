@@ -73,17 +73,18 @@ function ModelContent(props: any) {
       if (heroVideoGlowRef) {
         gsap.killTweensOf(heroVideoGlowRef)
         const tl = gsap.timeline()
-        tl.to(heroVideoGlowRef, { background: 'radial-gradient(circle,rgb(255, 251, 0) 0%, transparent 75%)',
+        tl.to(heroVideoGlowRef, {
+          background: 'radial-gradient(circle,rgb(255, 251, 0) 0%, transparent 50%)',
           duration: 0.5,
         })
         tl.to({}, { duration: 4.8, })
         tl.to(heroVideoGlowRef, {
-          background: 'radial-gradient(circle,rgb(0, 225, 255) 0%, transparent 75%)',
+          background: 'radial-gradient(circle,rgb(0, 225, 255) 0%, transparent 50%)',
           duration: 0.5,
         })
         tl.to({}, { duration: 4.5, })
         tl.to(heroVideoGlowRef, {
-          background: 'radial-gradient(circle,rgb(255, 0, 0) 0%, transparent 75%)',
+          background: 'radial-gradient(circle,rgb(255, 0, 0) 0%, transparent 50%)',
           duration: 0.5,
         })
         tl.play();
@@ -104,7 +105,7 @@ function ModelContent(props: any) {
     const stage3Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
 
     const stage1RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
-    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, Math.PI / 2, 0, 0)
+    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, 85 / 180 * Math.PI, 0, 0)
 
     const stage2RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
     const stage2HingeAlt = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
@@ -189,7 +190,7 @@ function ModelContent(props: any) {
             })
           }
           gsap.to(heroVideoGlowRef, {
-            opacity: 0.35,
+            opacity: 0.15,
             duration: 0.5,
             overwrite: "auto"
           })
@@ -221,7 +222,7 @@ function ModelContent(props: any) {
       if (userScrollingRef.current && changeViewRef.current) changeViewRef.current = false
       userScrollingRef.current = false
       if (laptopReady) setLaptopReady(false)
-      const duration = changeViewRef.current ? 1 : 0.2
+      const duration = changeViewRef.current ? 0.2 : 0.2
       const { rootTarget, hingeTarget } = getTargetValues(scrollY)
       gsap.to(rootRef.current.position, {
         x: rootTarget.x,
@@ -262,8 +263,8 @@ function ModelContent(props: any) {
       <group {...props} dispose={null}>
   <group
     ref={rootRef}
-    position={[0, -0.163, 0.3]}
-    rotation={[Math.PI, 0, Math.PI]}
+    position={[0.25, -0.15, -3]}
+    rotation={[-160 / 180 * Math.PI, 20 / 180 * Math.PI, Math.PI]}
   >
     <mesh
       geometry={nodes.LaptopBase.geometry}

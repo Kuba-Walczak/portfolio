@@ -59,6 +59,10 @@
 }
 
 
+@theme {
+  --breakpoint-3xl: 130rem;
+}
+
 @theme inline {
   --font-sans: 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';

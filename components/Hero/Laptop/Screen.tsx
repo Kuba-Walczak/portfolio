@@ -12,7 +12,7 @@ export function Screen() {
     const { selectedProject, setSelectedProject, setProjectView } = useApp()
     if (!selectedProject) return null
     return (
-            <div className="w-full h-full flex flex-col bg-gradient-to-t from-blue-900/25 via-black to-blue-900/25 rounded-t-4xl"> {/* inset-shadow-pseudo */}
+            <div className="w-full h-full flex flex-col rounded-t-4xl"> {/* inset-shadow-pseudo */}
                 <div className="p-4">
         <Tabs defaultValue="showcase" className="w-full h-full">
           <div className="flex items-center justify-between w-full">
@@ -24,10 +24,14 @@ export function Screen() {
             <Card
               className="flex flex-row items-center justify-center m-4 transition-colors rounded-full h-16 aspect-square"
               onClick={() =>{
+                const element = document.getElementById('projects')
+                if (!element) return
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+                const targetPosition = elementPosition + 200
                 const scrollProxy = { y: window.pageYOffset }
                   gsap.to(scrollProxy, {
-                    y: 1000,
-                    duration: 1.5,
+                    y: targetPosition,
+                    duration: 2,
                     overwrite: "auto",
                     onUpdate: () => {
                       window.scrollTo(0, scrollProxy.y)
@@ -36,7 +40,7 @@ export function Screen() {
                   setTimeout(() => {
                     setSelectedProject(null)
                     setProjectView(false)
-                  }, 1000)
+                  }, 1500)
               }}
             >
               <X className="h-10 w-10 text-foreground opacity-60 transition-colors hover:opacity-100 cursor-pointer" />

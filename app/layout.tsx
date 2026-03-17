@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Zen_Maru_Gothic } from 'next/font/google'
+import { Geist, Geist_Mono, WDXL_Lubrifont_SC } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppProvider } from '@/contexts/AppContext'
 import { TooltipProvider } from '@/components/ui/tooltip'
@@ -9,7 +9,7 @@ import Background from '@/components/Background'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
-export const zenMaruGothic = Zen_Maru_Gothic({ subsets: ["latin"], weight: ["700"], variable: "--font-zen-maru-gothic" });
+export const wdxlLubrifontSC = WDXL_Lubrifont_SC({ subsets: ["latin"], weight: ["400"], variable: "--font-wdxl-lubrifont-sc" });
 
 export const metadata: Metadata = {
   title: 'Portfolio - Full Stack Developer',
@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans antialiased ${zenMaruGothic.variable}`}>
+      <body className={`font-sans antialiased ${wdxlLubrifontSC.variable}`}>
         <AppProvider>
           <TooltipProvider>
             {children}

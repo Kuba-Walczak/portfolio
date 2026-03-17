@@ -28,7 +28,7 @@ export default function Home() {
       const documentHeight = document.documentElement.scrollHeight
       const windowHeight = window.innerHeight
       const maxScroll = documentHeight - windowHeight
-      return maxScroll * 0.2
+      return maxScroll * 0.3
     }
 
     const scrollTrigger = ScrollTrigger.create({
@@ -47,6 +47,16 @@ export default function Home() {
     // refresh now in case layout is already stable
     ScrollTrigger.refresh()
 
+    const simulateResize = () => {
+      document.documentElement.style.overflow = 'hidden'
+      window.dispatchEvent(new Event('resize'))
+      requestAnimationFrame(() => {
+        document.documentElement.style.overflow = ''
+        window.dispatchEvent(new Event('resize'))
+      })
+    }
+    simulateResize()
+
     window.scrollTo(0, 1000)
     setTimeout(() => {
       window.scrollTo(0, 0)
@@ -62,7 +72,7 @@ export default function Home() {
     <div className="h-[300vh]">
       <div ref={wrapperRef} className="relative min-h-screen">
       <Background />
-        {/* <Header /> */}
+        <Header />
         <div 
         className="relative h-screen"
         >

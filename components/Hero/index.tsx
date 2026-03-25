@@ -59,7 +59,7 @@ export default function Hero() {
     <div className="flex flex-col items-center justify-center">
       <section
         id="home"
-        className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex flex-col justify-center gap-4 sm:gap-6 lg:gap-8 scroll-mt-20 z-10"
+        className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex flex-col justify-center gap-4 sm:gap-6 lg:gap-8 scroll-mt-20 z-10 bg-red-500"
         style={{
           height: 'min(100vh, calc(165vh * 9 / 16))'
         }}
@@ -105,7 +105,7 @@ export default function Hero() {
       </div>
       {laptopReady && (
         <div 
-          className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+          className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden bg-blue-500"
           style={{ 
             width: 'calc(100vh * 1.018)', 
             height: 'calc(100vh * 0.76)' //previously 0.696

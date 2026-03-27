@@ -9,16 +9,18 @@ export function BeforeAfter({ content }: { content: GalleryContent }) {
             width={content?.media[0]?.width}
             height={content?.media[0]?.height}
             className="object-contain"
+            style={{ clipPath: "inset(0 50% 0 0)" }}
             autoPlay
             muted
             loop />
         </div>
-        <div className="relative overflow-hidden rounded-br-lg">
+        <div className="absolute inset-0 overflow-hidden rounded-br-lg">
             <video
             src={content?.media[1]?.src}
             width={content?.media[1]?.width}
             height={content?.media[1]?.height}
             className="object-contain"
+            style={{ clipPath: "inset(0 0 0 50%)" }}
             autoPlay
             muted
             loop />

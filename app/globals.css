@@ -89,7 +89,7 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: 'Inter', 'Inter Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -249,6 +249,43 @@
     border-radius: 2rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  /** Typography tokens */
+  .type-h1 {
+    @apply text-balance text-4xl font-bold leading-[0.95] tracking-[-0.03em] text-foreground
+      vsm:text-5xl
+      vmd:text-6xl
+      vlg:text-7xl
+      vxl:text-[6.5rem]
+      v2xl:text-[7.5rem];
+  }
+
+  .type-h2 {
+    @apply text-pretty text-xl font-medium uppercase tracking-[0.18em] text-foreground/70
+      vsm:text-xl
+      vmd:text-2xl
+      vlg:text-[2rem]
+      vxl:text-3xl
+      v2xl:text-4xl;
+  }
+
+  .type-h3 {
+    @apply text-balance text-base font-medium leading-tight tracking-[-0.015em] text-foreground/60
+      vsm:text-lg
+      vmd:text-xl
+      vlg:text-2xl
+      vxl:text-[1.75rem]
+      v2xl:text-3xl;
+  }
+
+  .type-h4 {
+    @apply text-pretty text-base leading-7 font-normal text-foreground/80
+      vsm:text-lg
+      vmd:text-xl
+      vlg:text-[1.35rem]
+      vxl:text-2xl
+      v2xl:text-[1.75rem];
   }
 
   /** Aurora background — slow drift (see components/Background.tsx) */

@@ -48,13 +48,13 @@ export default function About() {
               </TooltipContent>
             </Tooltip>
             </div>
-            <h2 className="text-7xl font-bold">
+            <h2 className="type-h1">
               Hi, I'm Jacob
             </h2>
             </div>
             <div className="flex flex-col gap-1">
-            <span className="font-mono text-lg tracking-widest uppercase text-muted-foreground">About Me</span>
-            <p className="text-2xl leading-relaxed text-justify">
+            <span className="type-h2">About Me</span>
+            <p className="type-h4">
             My name's Jacob and I'm a full-time CS student at PJAIT.
             Throughout my life I've tinkered with various forms of creative expression, such as video editing, music and animation.
             Ultimately what I've found to love most is creating visuals that rely on complex systems to create amazing experiences that don't just look cool, but work in a bigger environment and perform well.
@@ -62,11 +62,11 @@ export default function About() {
             </p>
             </div>
             <div className="flex flex-col gap-1">
-            <span className="font-mono text-lg tracking-widest uppercase text-muted-foreground">Education</span>
+            <span className="type-h2">Education</span>
             <span className="text-2xl text-foreground leading-relaxed">Computer Science<span className="mx-2">•</span>PJAIT<br/>2024<span className="mx-2">→</span>Present</span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="font-mono text-lg tracking-widest uppercase text-muted-foreground">Location</span>
+            <span className="type-h2">Location</span>
             <span className="text-2xl text-foreground leading-relaxed">Warsaw<span className="mx-2">•</span>Poland</span>
           </div>
           </div>

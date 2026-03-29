@@ -82,7 +82,7 @@ export default function Header() {
             <button
               key={sectionId}
               type="button"
-              className="flex items-center cursor-pointer rounded-sm px-3 py-1 font-mono text-base font-medium uppercase tracking-[0.12em] text-muted-foreground/75 transition-colors duration-200 first:pl-2.5 last:pr-2.5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent vsm:px-3.5 vsm:text-lg vsm:tracking-[0.14em] vmd:px-4 vmd:text-xl vlg:px-5 vlg:text-2xl vlg:tracking-[0.12em] vxl:text-3xl v2xl:text-4xl"
+              className="flex items-center cursor-pointer rounded-sm px-3 py-1 type-h2 transition-colors duration-200 first:pl-2.5 last:pr-2.5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               onClick={() => scrollTo(sectionId)}
             >
               {label}

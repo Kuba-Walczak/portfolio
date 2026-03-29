@@ -79,19 +79,25 @@ export default function Hero() {
       >
         <div className="flex flex-col justify-center gap-4 vsm:gap-5 vmd:gap-6 vlg:gap-7 vxl:gap-8 v2xl:gap-10">
           <div className="flex flex-col gap-1.5 vsm:gap-2">
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground/60 vsm:text-sm vmd:text-base vlg:text-base vxl:text-2xl v2xl:text-lg">Technical Artist<span className="mx-2 text-muted-foreground/40 vsm:mx-3">•</span>Warsaw, Poland</h2>
+            <h2 className="type-h2">
+              Technical Artist
+              <span className="mx-2 text-muted-foreground/40 vsm:mx-3">•</span>
+              Warsaw, Poland
+            </h2>
           </div>
-          <h1 className="mb-3 text-balance text-4xl font-bold leading-[0.8] text-foreground vsm:mb-4 vsm:text-6xl vmd:mb-5 vmd:text-7xl vlg:mb-6 vlg:-ml-1 vlg:text-[5.5rem] vxl:mb-7 vxl:-ml-1 vxl:text-[6.5rem] v2xl:-ml-2 v2xl:mb-8 v2xl:text-[8rem]">
-          KUBA WALCZAK
-        </h1>
+          <h1 className="type-h1">
+            KUBA WALCZAK
+          </h1>
           <div className="flex flex-col gap-1.5 vsm:gap-2">
-            <h2 className="text-lg font-medium tracking-tight text-foreground vsm:text-xl vmd:text-3xl vlg:text-3xl vxl:text-4xl v2xl:text-5xl">Real-time Graphics<span className="mx-2 text-muted-foreground/40 vsm:mx-3">•</span>Creative Tools</h2>
+            <h2 className="type-h3">
+              Bridging the gap between design and development<br/>through arts and technology
+            </h2>
           </div>
           <Card
             className="flex w-fit flex-row items-center gap-2.5 p-3 text-muted-foreground transition-colors duration-300 hover:cursor-pointer hover:bg-white/5 hover:text-white vsm:gap-3 vsm:p-4 vmd:gap-4 vmd:p-5 vlg:gap-5 vlg:p-6 vxl:gap-6 vxl:p-7 v2xl:gap-8 v2xl:p-10"
             onClick={() => handleScroll('projects')}
           >
-            <p className="text-base font-medium vsm:text-xl vmd:text-3xl vlg:text-3xl vxl:text-4xl v2xl:text-5xl">View Selected Work</p>
+            <p className="type-h2">View Selected Work</p>
             <ArrowRight className="h-4 w-4 vsm:h-5 vsm:w-5 vmd:h-7 vmd:w-7 vlg:h-8 vlg:w-8 vxl:h-9 vxl:w-9 v2xl:h-10 v2xl:w-10"/>
           </Card>
         </div>

@@ -77,15 +77,14 @@ export default function Hero() {
         ref={contentRef}
         className={`w-fit transition-transform duration-100 ease-out relative`}
       >
-        <h1 className="mb-3 text-balance text-4xl font-bold leading-[0.8] text-foreground vsm:mb-4 vsm:text-6xl vmd:mb-5 vmd:text-7xl vlg:mb-6 vlg:-ml-1 vlg:text-[5.5rem] vxl:mb-7 vxl:-ml-1 vxl:text-[6.5rem] v2xl:-ml-2 v2xl:mb-8 v2xl:text-[8rem]">
-          KUBA WALCZAK
-        </h1>
         <div className="flex flex-col justify-center gap-4 vsm:gap-5 vmd:gap-6 vlg:gap-7 vxl:gap-8 v2xl:gap-10">
           <div className="flex flex-col gap-1.5 vsm:gap-2">
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground/60 vsm:text-sm vmd:text-base vlg:text-base vxl:text-2xl v2xl:text-lg">Technical Artist<span className="mx-2 text-muted-foreground/40 vsm:mx-3">•</span>Warsaw, Poland</h2>
           </div>
+          <h1 className="mb-3 text-balance text-4xl font-bold leading-[0.8] text-foreground vsm:mb-4 vsm:text-6xl vmd:mb-5 vmd:text-7xl vlg:mb-6 vlg:-ml-1 vlg:text-[5.5rem] vxl:mb-7 vxl:-ml-1 vxl:text-[6.5rem] v2xl:-ml-2 v2xl:mb-8 v2xl:text-[8rem]">
+          KUBA WALCZAK
+        </h1>
           <div className="flex flex-col gap-1.5 vsm:gap-2">
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground/60 vsm:text-sm vmd:text-base vlg:text-base vxl:text-lg v2xl:text-lg">Focus</h3>
             <h2 className="text-lg font-medium tracking-tight text-foreground vsm:text-xl vmd:text-3xl vlg:text-3xl vxl:text-4xl v2xl:text-5xl">Real-time Graphics<span className="mx-2 text-muted-foreground/40 vsm:mx-3">•</span>Creative Tools</h2>
           </div>
           <Card

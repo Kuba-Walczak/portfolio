@@ -3,7 +3,7 @@ import NextImage from 'next/image'
 
 export function Image({ content }: { content: GalleryContent }) {
     return (
-        <div className="relative overflow-hidden border rounded-b-lg">
+        <div className="border-ui-glass relative overflow-hidden rounded-b-lg">
           <NextImage
             src={content?.media[0]?.src}
             alt={content?.caption}

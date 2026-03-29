@@ -4,6 +4,7 @@ import { Badge } from "../ui/badge"
 import { gsap } from "gsap"
 import { getTag, Tag } from "@/types/tag"
 import { useRef, useEffect } from "react"
+import { MousePointerClickIcon } from "lucide-react"
 
 export function SingleProject({ project }: { project: Project }) {
     const { projectView, setProjectView, selectedTab, setSelectedTab, projects, selectedProject, setSelectedProject } = useApp()
@@ -29,12 +30,12 @@ export function SingleProject({ project }: { project: Project }) {
   return (
         <div
           key={project.id}
-          className={`relative min-w-[350px] h-[420px] flex flex-col flex-shrink-0 overflow-hidden rounded-2xl border transition-all duration-100 ${
+          className={`relative min-w-[350px] h-[420px] flex flex-col flex-shrink-0 overflow-hidden rounded-2xl border-ui-glass transition-all duration-100 ${
             project.status === 'coming-soon'
               ? 'pointer-events-none'
               : isSelected
-                ? 'ring-primary border-primary bg-white/5 cursor-pointer hover:bg-white/5'
-                : 'ring-white/10 hover:ring-primary/50 hover:border-primary/50 hover:bg-white/5 cursor-pointer'
+                ? 'border-ui-color-primary ring-primary bg-white/5 cursor-pointer hover:bg-white/5'
+                : 'border-ui-hover-primary/50 ring-white/10 hover:ring-primary/50 hover:bg-white/5 cursor-pointer'
           }`}
           onClick={() => {
             if (project.status === 'coming-soon') return
@@ -75,10 +76,20 @@ export function SingleProject({ project }: { project: Project }) {
                 e.currentTarget.parentElement!.appendChild(placeholder)
               }}
             />
+            {project.status !== 'coming-soon' && (
+              <div
+                className="pointer-events-none absolute top-3 right-3 z-[25] text-white/50 lg:top-4 lg:right-4"
+                aria-hidden
+              >
+                <MousePointerClickIcon className="w-8 h-8 lg:w-16 lg:h-16" />
+              </div>
+            )}
             {project.status === 'coming-soon' && (
               <>
-                <div className="absolute inset-0 bg-gray-900/95 opacity-90 grayscale"/>
-                <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-5xl font-bold z-20 opacity-10 text-nowrap">COMING SOON</p>
+                <div className="absolute inset-0 z-10 bg-gray-900/95 opacity-90 grayscale" />
+                <p className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 text-center text-5xl font-bold opacity-10 text-nowrap">
+                  COMING SOON
+                </p>
               </>
             )}
           </div>
@@ -106,7 +117,7 @@ export function SingleProject({ project }: { project: Project }) {
           </p>
         </div>
         {/* Footer */}
-        <div className="flex gap-2 border-t border-border px-6 py-4 shrink-0">
+        <div className="flex gap-2 border-ui-t-glass px-6 py-4 shrink-0">
           {project.laptop.techStack.map((tech) => (
             <Badge key={tech} variant="secondary">{tech}</Badge>
           ))}

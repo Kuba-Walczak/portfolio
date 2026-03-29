@@ -58,10 +58,10 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
                 loop
                 muted
                 playsInline
-                className="border-2 rounded-xl"
+                className="border-ui-strong-glass rounded-xl"
             />
             <div className="flex gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4">
-            <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-none">
+            <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-ui-none">
             <FileText className="h-6 w-6 vsm:h-8 vsm:w-8 vmd:h-10 vmd:w-10 vlg:h-12 vlg:w-12 text-foreground" />
             <div>
               <h3 className="text-xs vmd:text-sm vlg:text-lg font-medium text-muted-foreground">
@@ -70,7 +70,7 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
               <p className="text-sm vsm:text-base vmd:text-xl vlg:text-3xl font-medium">{title}</p>
             </div>
         </Card>
-        <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-none">
+        <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-ui-none">
             <Calendar className="h-6 w-6 vsm:h-8 vsm:w-8 vmd:h-10 vmd:w-10 vlg:h-12 vlg:w-12 text-foreground" />
             <div>
               <h3 className="text-xs vmd:text-sm vlg:text-lg font-medium text-muted-foreground">
@@ -79,7 +79,7 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
               <p className="text-sm vsm:text-base vmd:text-xl vlg:text-3xl font-medium">{date}</p>
             </div>
         </Card>
-        <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-none">
+        <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-ui-none">
             <Clock className="h-6 w-6 vsm:h-8 vsm:w-8 vmd:h-10 vmd:w-10 vlg:h-12 vlg:w-12 text-foreground" />
             <div>
               <h3 className="text-xs vmd:text-sm vlg:text-lg font-medium text-muted-foreground">
@@ -89,7 +89,7 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
             </div>
         </Card>
         <Card 
-          className="flex flex-1 flex-row items-center justify-center p-2 vsm:p-3 vmd:p-4 vlg:p-6 backdrop-blur-none cursor-pointer hover:bg-white/10 transition-colors"
+          className="flex flex-1 flex-row items-center justify-center p-2 vsm:p-3 vmd:p-4 vlg:p-6 backdrop-blur-ui-none cursor-pointer hover:bg-white/10 transition-colors"
           onClick={togglePlayPause}
         >
             {isPlaying ? (

@@ -4,8 +4,8 @@ import { Geist, Geist_Mono, WDXL_Lubrifont_SC } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppProvider } from '@/contexts/AppContext'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import Header from '@/components/Header'
 import './globals.css'
-import Background from '@/components/Background'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -44,6 +44,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased ${wdxlLubrifontSC.variable}`}>
         <AppProvider>
           <TooltipProvider>
+            <Header />
             {children}
           </TooltipProvider>
           <Analytics />

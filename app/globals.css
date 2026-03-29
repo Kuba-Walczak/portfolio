@@ -12,29 +12,45 @@
 :root {
   --radius: 0.65rem;
   --background: hsl(0 0% 100%);
-  --foreground: hsl(0 0% 3.9%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(0 0% 3.9%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(0 0% 3.9%);
   --primary: hsl(0 0% 9%);
-  --primary-foreground: hsl(0 0% 98%);
   --secondary: hsl(0 0% 96.1%);
-  --secondary-foreground: hsl(0 0% 9%);
   --muted: hsl(0 0% 96.1%);
-  --muted-foreground: hsl(0 0% 45.1%);
   --accent: hsl(0 0% 96.1%);
-  --accent-foreground: hsl(0 0% 9%);
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(0 0% 89.8%);
-  --input: hsl(0 0% 89.8%);
-  --ring: hsl(0 0% 3.9%);
-  --chart-1: hsl(12 76% 61%);
-  --chart-2: hsl(173 58% 39%);
-  --chart-3: hsl(197 37% 24%);
-  --chart-4: hsl(43 74% 66%);
-  --chart-5: hsl(27 87% 67%);
+  --glass: rgb(255 255 255 / 0.03);
+  /*
+   * Controllable UI borders — toggle site-wide from here.
+   * Set --ui-border-width to 1px (or 2px) to show borders; keep 0px to hide.
+   */
+  --ui-border-width: 1px;
+  --ui-border-style: solid;
+  --ui-border-color: var(--border);
+  --ui-border-width-strong: calc(var(--ui-border-width) * 2);
+  --ui-border-glass-color: rgb(255 255 255 / 0.05);
+  /** Laptop tab “active” rim; default matches frosted chrome */
+  --ui-tabs-active-border: var(--ui-border-glass-color);
+  /**
+   * Site-wide frosted-glass backdrop blur (see .backdrop-blur-ui).
+   * Use 0 to disable; e.g. 16px for stronger glass. .backdrop-blur-ui-none turns blur off per element.
+   */
+  --ui-backdrop-blur: 12px;
+  /**
+   * Dual radial wash — top-left and bottom-right (ellipse size, fade stop).
+   * Tune --ui-radial-tl / --ui-radial-br for hue; use background-color underneath (e.g. var(--background)).
+   */
+  --ui-radial-ellipse: 85% 75%;
+  --ui-radial-fade-stop: 65%;
+  --ui-radial-bg:
+    radial-gradient(
+      ellipse var(--ui-radial-ellipse) at 0% 0%,
+      var(--secondary),
+      transparent var(--ui-radial-fade-stop)
+    ),
+    radial-gradient(
+      ellipse var(--ui-radial-ellipse) at 100% 100%,
+      var(--secondary),
+      transparent var(--ui-radial-fade-stop)
+    );
 }
 
 .dark {
@@ -62,6 +78,9 @@
   --chart-3: hsl(30 80% 55%);
   --chart-4: hsl(280 65% 60%);
   --chart-5: hsl(340 75% 55%);
+  /** Corner glows on dark base — needs enough alpha to read over --background */
+  --ui-radial-tl: hsl(220 55% 48% / 0.45);
+  --ui-radial-br: hsl(280 45% 48% / 0.4);
 }
 
 
@@ -96,6 +115,7 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-glass: var(--glass);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -115,14 +135,110 @@
     scroll-behavior: auto;
   }
   * {
-    @apply border-border outline-ring/50;
+    @apply outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
   }
 }
 
+@layer components {
+  /** Tab triggers: transparent until active (then --input); width from --ui-border-width */
+  .border-ui-tabs-trigger {
+    border-width: var(--ui-border-width);
+    border-style: var(--ui-border-style);
+    border-color: transparent;
+  }
+  .border-ui-tabs-trigger[data-state='active'] {
+    border-color: var(--ui-tabs-active-border);
+  }
+}
+
 @layer utilities {
+  /** Full box — uses --ui-border-width / --ui-border-color */
+  .border-ui {
+    border-width: var(--ui-border-width);
+    border-style: var(--ui-border-style);
+    border-color: var(--ui-border-color);
+  }
+  /** Thicker frame (e.g. hero video) — uses --ui-border-width-strong */
+  .border-ui-strong {
+    border-width: var(--ui-border-width-strong);
+    border-style: var(--ui-border-style);
+    border-color: var(--ui-border-color);
+  }
+  .border-ui-strong-glass {
+    border-width: var(--ui-border-width-strong);
+    border-style: var(--ui-border-style);
+    border-color: var(--ui-border-glass-color);
+  }
+  .border-ui-t {
+    border-top-width: var(--ui-border-width);
+    border-top-style: var(--ui-border-style);
+    border-top-color: var(--ui-border-color);
+  }
+  .border-ui-t-glass {
+    border-top-width: var(--ui-border-width);
+    border-top-style: var(--ui-border-style);
+    border-top-color: var(--ui-border-glass-color);
+  }
+  .border-ui-glass {
+    border-width: var(--ui-border-width);
+    border-style: var(--ui-border-style);
+    border-color: var(--ui-border-glass-color);
+  }
+  .border-ui-input {
+    border-width: var(--ui-border-width);
+    border-style: var(--ui-border-style);
+    border-color: var(--input);
+  }
+  .border-ui-color-primary {
+    border-color: var(--primary);
+  }
+  @media (hover: hover) {
+    .border-ui-hover-primary\/50:hover {
+      border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    }
+  }
+  /** Vertical dividers (replaces divide-x) */
+  .divide-ui-x > * + * {
+    border-left-width: var(--ui-border-width);
+    border-left-style: var(--ui-border-style);
+    border-left-color: var(--ui-border-color);
+  }
+  .divide-ui-x-glass > * + * {
+    border-left-width: var(--ui-border-width);
+    border-left-style: var(--ui-border-style);
+    border-left-color: var(--ui-border-glass-color);
+  }
+  .backdrop-blur-ui {
+    -webkit-backdrop-filter: blur(var(--ui-backdrop-blur));
+    backdrop-filter: blur(var(--ui-backdrop-blur));
+  }
+  .backdrop-blur-ui-none {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  /**
+   * Dual corner radials (+ solid base). Use on a container; avoids mixing with Tailwind bg-background.
+   */
+  .bg-radial-ui {
+    background-color: var(--background);
+    background-image: var(--ui-radial-bg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% 100%, 100% 100%;
+  }
+  /** Lines follow the same width/colour variables */
+  .ui-separator-h {
+    height: var(--ui-border-width);
+    width: 100%;
+    background-color: var(--ui-border-color);
+  }
+  .ui-separator-v {
+    width: var(--ui-border-width);
+    height: 100%;
+    background-color: var(--ui-border-color);
+  }
   .inset-shadow-pseudo::before {
     content: '';
     position: absolute;
@@ -133,5 +249,81 @@
     border-radius: 2rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  }
+
+  /** Aurora background — slow drift (see components/Background.tsx) */
+  .animate-aurora-1 {
+    animation: aurora-drift-1 78s ease-in-out infinite;
+  }
+  .animate-aurora-2 {
+    animation: aurora-drift-2 96s ease-in-out infinite;
+  }
+  .animate-aurora-3 {
+    animation: aurora-drift-3 112s linear infinite;
+  }
+  .animate-aurora-4 {
+    animation: aurora-drift-4 68s ease-in-out infinite;
+  }
+  .animate-aurora-5 {
+    animation: aurora-drift-5 88s ease-in-out infinite;
+  }
+}
+
+@keyframes aurora-drift-1 {
+  0%,
+  100% {
+    transform: translate3d(0%, 0%, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -3%, 0) scale(1.05);
+  }
+  66% {
+    transform: translate3d(-3%, 2%, 0) scale(0.97);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  0%,
+  100% {
+    transform: translate3d(0%, 0%, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-5%, 4%, 0) rotate(-3deg) scale(1.07);
+  }
+}
+
+@keyframes aurora-drift-3 {
+  0%,
+  100% {
+    transform: translate3d(0%, 0%, 0);
+  }
+  40% {
+    transform: translate3d(3%, 5%, 0);
+  }
+  80% {
+    transform: translate3d(-4%, -2%, 0);
+  }
+}
+
+@keyframes aurora-drift-4 {
+  0%,
+  100% {
+    transform: translate3d(0%, 0%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(5%, -4%, 0) scale(1.1);
+  }
+}
+
+@keyframes aurora-drift-5 {
+  0%,
+  100% {
+    transform: translate3d(0%, 0%, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(-2%, 3%, 0) rotate(2deg);
+  }
+  75% {
+    transform: translate3d(3%, -2%, 0) rotate(-2deg);
   }
 }

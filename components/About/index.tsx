@@ -26,7 +26,7 @@ export default function About() {
                   alt="PJAIT Logo"
                   width={500}
                   height={500}
-                  className="rounded-xl bg-white/5 border w-24 h-24 p-2"
+                  className="border-ui-glass rounded-xl bg-white/5 w-24 h-24 p-2"
                 />
               </TooltipTrigger>
               <TooltipContent>
@@ -40,7 +40,7 @@ export default function About() {
                   alt="Mirai Logo"
                   width={500}
                   height={500}
-                  className="rounded-xl bg-white/3 border w-16 h-24 object-contain"
+                  className="border-ui-glass rounded-xl bg-glass w-16 h-24 object-contain"
                 />
               </TooltipTrigger>
               <TooltipContent>
@@ -70,7 +70,7 @@ export default function About() {
             <span className="text-2xl text-foreground leading-relaxed">Warsaw<span className="mx-2">•</span>Poland</span>
           </div>
           </div>
-        <div className="relative w-1/2 flex bg-white/5 backdrop-blur-xl border rounded-2xl over overflow-hidden">
+        <div className="border-ui-glass relative w-1/2 flex bg-white/5 backdrop-blur-ui rounded-2xl over overflow-hidden">
         <p className="absolute top-1/2 left-1/2 text-center text-muted-foreground z-[-10] opacity-3" style={{ fontFamily: 'var(--font-wdxl-lubrifont-sc)', fontSize: '32rem', lineHeight: 1, transform: 'translate(-5%, -65%)', transformOrigin: 'center' }}>
             未<br/>来
           </p>

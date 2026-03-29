@@ -2,7 +2,7 @@ import { GalleryContent } from "@/types/project";
 
 export function BeforeAfter({ content }: { content: GalleryContent }) {
     return (
-        <div className="flex border rounded-b-lg">
+        <div className="border-ui-glass flex rounded-b-lg">
         <div className="relative overflow-hidden rounded-bl-lg">
             <video
             src={content?.media[0]?.src}

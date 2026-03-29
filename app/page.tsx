@@ -5,9 +5,7 @@ import Hero from '@/components/Hero'
 import Projects from '@/components/Projects/index'
 import About from '@/components/About'
 import Footer from '@/components/Footer'
-import SectionHeader from '@/components/SectionHeader'
 import Background from '@/components/Background'
-import { Separator } from '@/components/ui/separator'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
@@ -73,7 +71,6 @@ export default function Home() {
     <div className="h-[300vh]">
       <div ref={wrapperRef} className="relative min-h-screen">
       <Background />
-        <Header />
         <div 
         className="relative h-screen"
         >

@@ -2,7 +2,7 @@ import { GalleryContent } from "@/types/project";
 
 export function Video({ content }: { content: GalleryContent }) {
     return (
-        <div className="relative overflow-hidden border rounded-b-lg">
+        <div className="border-ui-glass relative overflow-hidden rounded-b-lg">
             <video
             src={content?.media[0]?.src}
             width={content?.media[0]?.width}

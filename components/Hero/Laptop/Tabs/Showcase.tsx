@@ -52,14 +52,6 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
     return (
         <div className="w-full h-full flex">
             <div className="flex flex-col justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4">
-            <video
-                ref={videoRef}
-                src={selectedProject?.laptop?.showcase}
-                loop
-                muted
-                playsInline
-                className="border-ui-strong-glass rounded-xl"
-            />
             <div className="flex gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4">
             <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-ui-none">
             <FileText className="h-6 w-6 vsm:h-8 vsm:w-8 vmd:h-10 vmd:w-10 vlg:h-12 vlg:w-12 text-foreground" />
@@ -99,6 +91,14 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
               )}
         </Card>
       </div>
+            <video
+                ref={videoRef}
+                src={selectedProject?.laptop?.showcase}
+                loop
+                muted
+                playsInline
+                className="border-ui-strong-glass rounded-xl"
+            />
             </div>
         </div>
     )

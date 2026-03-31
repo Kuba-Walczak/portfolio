@@ -26,7 +26,7 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  "rounded-full gap-0.5 vsm:gap-1 vmd:gap-3 vlg:gap-3 pb-1 vsm:pb-2 vmd:pb-3 vlg:pb-4 group-data-[orientation=horizontal]/tabs:h-8 group-data-[orientation=horizontal]/tabs:vsm:h-10 group-data-[orientation=horizontal]/tabs:vmd:h-[4.5rem] group-data-[orientation=horizontal]/tabs:vlg:h-24 data-[variant=line]:rounded-none group/tabs-list text-muted-foreground inline-flex w-fit items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col",
+  "rounded-full gap-0.5 vsm:gap-1 vmd:gap-3 vlg:gap-3 p-1 vsm:p-2 vmd:p-3 vlg:p-4 group-data-[orientation=horizontal]/tabs:h-8 group-data-[orientation=horizontal]/tabs:vsm:h-10 group-data-[orientation=horizontal]/tabs:vmd:h-[4.5rem] group-data-[orientation=horizontal]/tabs:vlg:h-24 data-[variant=line]:rounded-none group/tabs-list text-muted-foreground inline-flex w-fit items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col",
   {
     variants: {
       variant: {

@@ -33,8 +33,7 @@ export function Screen() {
 
     if (!selectedProject) return null
     return (
-            <div className="w-full h-full flex flex-col rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl bg-gradient-to-b from-blue-500/50 to-blue-900/50"> {/* inset-shadow-pseudo */}
-                <div className="p-1 vsm:p-2 vmd:p-3 vlg:p-4">
+            <div className="w-full h-full flex flex-col rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl"> {/* inset-shadow-pseudo */}
         <Tabs
           value={activeTab}
           onValueChange={(value) => {
@@ -47,7 +46,7 @@ export function Screen() {
           }}
           className="w-full h-full"
         >
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full bg-white/3 rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl">
             <TabsList>
               <TabsTrigger value="showcase">Showcase</TabsTrigger>
               <TabsTrigger value="details">Details</TabsTrigger>
@@ -57,11 +56,12 @@ export function Screen() {
               </TabsTrigger>
             </TabsList>
           </div>
+          <div className="p-1 vsm:p-2 vmd:p-3 vlg:p-4">
           <TabsContent value="showcase"><Showcase title={selectedProject.title} date={selectedProject.laptop.startDate} duration={selectedProject.laptop.duration} /></TabsContent>
-          <TabsContent value="details"><Details description={selectedProject.laptop.description} techStack={selectedProject.laptop.techStack} /></TabsContent>
-          <TabsContent value="gallery"><Gallery /></TabsContent>
+            <TabsContent value="details"><Details description={selectedProject.laptop.description} techStack={selectedProject.laptop.techStack} /></TabsContent>
+            <TabsContent value="gallery"><Gallery /></TabsContent>
+          </div>
         </Tabs>
                 </div>
-        </div>
     )
 }

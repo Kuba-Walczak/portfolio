@@ -69,8 +69,8 @@ export default function Hero() {
       <div
       className={`rounded-2xl flex flex-col mx-auto w-fit transition-opacity duration-500 ${projectView || scrollY > 0.4 ? 'hidden' : ''}`}
       style={{
-        width: 'calc(100vh * 1.2)',
-        clipPath: scrollY > 0.3 ? 'inset(-40px 65% -40px -40px)' : scrollY > 0.2 ? 'inset(-40px 50% -40px -40px)' : 'inset(-40px 35% -40px -40px)',
+        width: 'calc(100vh * 1.3)',
+        clipPath: scrollY > 0.3 ? 'inset(-40px 65% -40px -40px)' : scrollY > 0.2 ? 'inset(-40px 50% -40px -40px)' : 'inset(-40px 30% -40px -40px)',
     
       }}>
       <div 

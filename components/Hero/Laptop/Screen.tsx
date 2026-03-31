@@ -33,7 +33,7 @@ export function Screen() {
 
     if (!selectedProject) return null
     return (
-            <div className="w-full h-full flex flex-col rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl bg-background"> {/* inset-shadow-pseudo */}
+            <div className="w-full h-full flex flex-col rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl bg-gradient-to-b from-blue-500/50 to-blue-900/50"> {/* inset-shadow-pseudo */}
                 <div className="p-1 vsm:p-2 vmd:p-3 vlg:p-4">
         <Tabs
           value={activeTab}

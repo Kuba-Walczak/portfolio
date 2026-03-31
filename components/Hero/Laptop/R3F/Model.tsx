@@ -146,10 +146,10 @@ function ModelContent(props: any) {
     const stage1Root: Vector6D = new Vector6D(0.25, -0.15, -3, -160 / 180 * Math.PI, 20 / 180 * Math.PI, Math.PI)
     const stage1Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, 2.007, 0, 0)
 
-    const stage2Root: Vector6D = new Vector6D(0, -0.15, -1.5, -170 / 180 * Math.PI, 0, Math.PI)
+    const stage2Root: Vector6D = new Vector6D(0, -0.15, -3, -170 / 180 * Math.PI, 0, Math.PI)
     const stage2Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, Math.PI / 2, 0, 0)
 
-    const stage3Root: Vector6D = new Vector6D(0, -0.16, -0.2, -185 / 180 * Math.PI, 0, Math.PI)
+    const stage3Root: Vector6D = new Vector6D(0, -0.2, -0.7, -185 / 180 * Math.PI, 0, Math.PI)
     const stage3Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
 
     const stage1RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)

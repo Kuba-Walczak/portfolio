@@ -27,7 +27,7 @@ export default function Hero() {
       hasAnimatedRef.current = true
       gsap.to(contentRef.current, {
         x: '+=100%',
-        duration: 1
+        duration: 1.5
       })
     } else if (scrollY < 0.15 && hasAnimatedRef.current) {
       hasAnimatedRef.current = false
@@ -67,15 +67,15 @@ export default function Hero() {
         }}
       >
       <div
-      className={`flex flex-col mx-auto w-fit transition-opacity duration-500 ${projectView || scrollY > 0.4 ? 'hidden' : ''}`}
+      className={`rounded-2xl flex flex-col mx-auto w-fit transition-opacity duration-500 ${projectView || scrollY > 0.4 ? 'hidden' : ''}`}
       style={{
         width: 'calc(100vh * 1.2)',
-        clipPath: scrollY > 0.3 ? 'inset(-40px 75% -40px -40px)' : scrollY > 0.2 ? 'inset(-40px 50% -40px -40px)' : 'inset(-40px 25% -40px -40px)',
+        clipPath: scrollY > 0.3 ? 'inset(-40px 65% -40px -40px)' : scrollY > 0.2 ? 'inset(-40px 50% -40px -40px)' : 'inset(-40px 35% -40px -40px)',
     
       }}>
       <div 
         ref={contentRef}
-        className={`w-fit transition-transform duration-100 ease-out relative`}
+        className={`w-fit transition-transform duration-100 ease-out relative bg-white/3 p-8 rounded-2xl w-full`}
       >
         <div className="flex flex-col justify-center gap-4 vsm:gap-5 vmd:gap-6 vlg:gap-7 vxl:gap-8 v2xl:gap-10">
           <div className="flex flex-col gap-1.5 vsm:gap-2">

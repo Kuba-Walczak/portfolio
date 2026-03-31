@@ -11,7 +11,7 @@ export function Gallery() {
   return (
     <div className="relative w-full h-full">
       <div className={`flex flex-col justify-center ${selectedContent ? 'hidden' : ''}`}>
-        <div className="grid grid-cols-2 gap-2 vsm:gap-3 vmd:gap-4 vlg:gap-4 vxl:gap-5 v2xl:gap-6">
+        <div className="grid grid-cols-4 gap-2 vsm:gap-3 vmd:gap-4 vlg:gap-4 vxl:gap-5 v2xl:gap-6">
           {selectedProject?.laptop?.gallery.map((content: GalleryContent) => (
               <div key={content.caption} className="border-ui-glass flex flex-col overflow-hidden rounded-lg vsm:rounded-xl">
                 <div className="flex items-center justify-center bg-glass backdrop-blur-ui p-1 vsm:p-1.5 vmd:p-2 vlg:p-3 rounded-t-lg vsm:rounded-t-xl">
@@ -23,7 +23,7 @@ export function Gallery() {
                   className="group cursor-pointer overflow-hidden rounded-b-lg"
                   onClick={() => setSelectedContent(content)}
                 >
-                  <div className="relative h-20 w-full overflow-hidden vsm:h-40 vmd:h-60 vlg:h-80 vxl:h-100 v2xl:h-120">
+                  <div className="relative h-10 w-full overflow-hidden vsm:h-20 vmd:h-30 vlg:h-40 vxl:h-50 v2xl:h-60">
                     {content.type === 'image' ? (
                       <>
                         <Image

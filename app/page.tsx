@@ -23,10 +23,10 @@ export default function Home() {
     if (!wrapperRef.current) return
 
     const calculateEnd = () => {
-      const element = document.getElementById('projects');
-      if (!element) return 0
-      const maxScroll = element.getBoundingClientRect().top * 0.5
-      return maxScroll
+      const documentHeight = document.documentElement.scrollHeight
+      const windowHeight = window.innerHeight
+      const maxScroll = documentHeight - windowHeight
+      return maxScroll * 0.3
     }
 
     const scrollTrigger = ScrollTrigger.create({

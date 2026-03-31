@@ -295,11 +295,11 @@
 
   .type-h4 {
     @apply text-pretty text-base font-normal leading-relaxed tracking-[0.05em] text-foreground/80
-      vsm:text-base
-      vmd:text-lg
-      vlg:text-xl
-      vxl:text-2xl
-      v2xl:text-[1.7rem];
+      vsm:text-sm
+      vmd:text-base
+      vlg:text-lg
+      vxl:text-xl
+      v2xl:text-2xl;
   }
 
   /** Aurora background — slow drift (see components/Background.tsx) */

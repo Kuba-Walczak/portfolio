@@ -59,6 +59,11 @@ export function Screen({ setIsScreenMounted, setIsScreenVisible, setIsScreenFadi
     return (
             <div
               className={`w-full h-full flex flex-col rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl ${isClosing ? 'animate-glyph-fade-out' : ''}`}
+              style={{
+                backgroundColor: selectedProject.laptop.colors[0],
+                backgroundImage: `radial-gradient(circle at top left, ${selectedProject.laptop.colors[1]} 0%, transparent 100%)`,
+                boxShadow: 'inset 0 0 5px 2px rgba(0,0,0,1)',
+              }}
             >
         <Tabs
           value={activeTab}
@@ -72,7 +77,11 @@ export function Screen({ setIsScreenMounted, setIsScreenVisible, setIsScreenFadi
           }}
           className="w-full h-full"
         >
-          <div className="flex justify-center w-full bg-[#151520] rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl">
+          <div className="flex justify-center w-full bg-[#151520] rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl"
+          style={{
+            boxShadow:
+              'inset 4px 0 4px -4px rgba(0,0,0,1), inset -4px 0 4px -4px rgba(0,0,0,1), inset 0 4px 5px -2px rgba(0,0,0,1)',
+          }}>
             <TabsList className="!h-8 vsm:!h-10 vmd:!h-[3.25rem] vlg:!h-[3.75rem] !p-0.5 vsm:!p-1 vmd:!p-1.5 vlg:!p-2">
               <TabsTrigger value="showcase" className="text-sm vsm:text-lg vmd:text-2xl vlg:text-3xl !py-0.5 ![font-family:var(--font-manrope)]">Preview</TabsTrigger>
               <TabsTrigger value="details" className="text-sm vsm:text-lg vmd:text-2xl vlg:text-3xl !py-0.5 ![font-family:var(--font-manrope)]">Details</TabsTrigger>
@@ -83,15 +92,13 @@ export function Screen({ setIsScreenMounted, setIsScreenVisible, setIsScreenFadi
             </TabsList>
           </div>
           <div
-          className="p-1 vsm:p-2 vmd:p-3 vlg:p-4 h-full"
-          style={{
-            backgroundColor: selectedProject.laptop.colors[0],
-            backgroundImage: `radial-gradient(circle at top left, ${selectedProject.laptop.colors[1]} 0%, transparent 100%)`,
-            boxShadow:
-              "inset 2px 0 5px -2px rgba(0,0,0,1), inset -2px 0 5px -2px rgba(0,0,0,1), inset 0 -2px 5px -2px rgba(0,0,0,1)",
-          }}>
+          className="p-1 vsm:p-2 vmd:p-3 vlg:p-4 h-full">
           <TabsContent value="showcase"><div key={`showcase-${tabFadeKey}`} className="animate-glyph-fade"><Showcase title={selectedProject.title} date={selectedProject.laptop.startDate} duration={selectedProject.laptop.duration} /></div></TabsContent>
-            <TabsContent value="details"><div key={`details-${tabFadeKey}`} className="animate-glyph-fade"><Details description={selectedProject.laptop.description} techStack={selectedProject.laptop.techStack} /></div></TabsContent>
+            <TabsContent value="details"><div key={`details-${tabFadeKey}`} className="animate-glyph-fade"><Details
+              description={selectedProject.laptop.description}
+              feature={selectedProject.laptop.feature}
+              techStack={selectedProject.laptop.techStack}
+            /></div></TabsContent>
             <TabsContent value="gallery"><div className={activeTab === "gallery" ? "animate-glyph-fade" : ""}><Gallery /></div></TabsContent>
           </div>
         </Tabs>

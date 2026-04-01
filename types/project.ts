@@ -15,6 +15,7 @@ export interface ProjectCard {
 export interface ProjectLaptop {
     colors: string[];
     description: string;
+    feature: string[];
     techStack: string[];
     startDate: string;
     duration: string;

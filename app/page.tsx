@@ -9,6 +9,7 @@ import Background from '@/components/Background'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
+import SectionHeader from '@/components/SectionHeader'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -84,7 +85,9 @@ export default function Home() {
         >
           <Projects />
         </div>
+        <SectionHeader/>
         <About />
+        <SectionHeader/>
           <Footer />
     </div>
     </div>

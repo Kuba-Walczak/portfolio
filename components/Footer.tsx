@@ -2,9 +2,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="border-ui-t-glass w-full scroll-mt-20 py-4 bg-glass backdrop-blur-ui">
+    <footer id="contact" className="w-full scroll-mt-20 py-4 bg-simple-background">
       <div className="mx-auto">
-        <p className="text-center text-xl text-muted-foreground">
+        <p className="type-h4 text-center">
           © {currentYear} Kuba Walczak
         </p>
       </div>

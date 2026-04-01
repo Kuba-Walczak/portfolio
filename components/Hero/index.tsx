@@ -69,23 +69,23 @@ export default function Hero() {
       <div
       className={`rounded-2xl flex flex-col mx-auto w-fit transition-opacity duration-500 ${projectView || scrollY > 0.4 ? 'hidden' : ''}`}
       style={{
-        width: 'calc(100vh * 1.3)',
+        width: 'calc(100vh * 1.1)',
         clipPath: scrollY > 0.3 ? 'inset(-40px 65% -40px -40px)' : scrollY > 0.2 ? 'inset(-40px 50% -40px -40px)' : 'inset(-40px 30% -40px -40px)',
     
       }}>
       <div 
         ref={contentRef}
-        className={`w-fit transition-transform duration-100 ease-out relative bg-white/3 p-8 rounded-2xl w-full`}
+        className={`w-fit transition-transform duration-100 ease-out relative rounded-2xl w-full`}
       >
         <div className="flex flex-col justify-center gap-4 vsm:gap-5 vmd:gap-6 vlg:gap-7 vxl:gap-8 v2xl:gap-10">
-          <div className="flex flex-col gap-1.5 vsm:gap-2">
+          <div className="flex flex-col gap-1.5 vsm:gap-2 -mb-2 vsm:-mb-2 vmd:-mb-2.5 vlg:-mb-3">
             <h2 className="type-h2">
               Technical Artist
               <span className="mx-2 type-h2">•</span>
               Warsaw, Poland
             </h2>
           </div>
-          <h1 className="type-h1 bg-gradient-to-b from-white/40 to-white bg-clip-text !text-transparent">
+          <h1 className="type-h1 -ml-[0.012em] vsm:-ml-[0.015em] vmd:-ml-[0.02em] vlg:-ml-[0.022em] vxl:-ml-[0.025em] -mt-0.5 vsm:-mt-0.5 vmd:-mt-1 vlg:-mt-1">
             KUBA WALCZAK
           </h1>
           <div className="flex flex-col gap-1.5 vsm:gap-2">
@@ -94,11 +94,11 @@ export default function Hero() {
             </h2>
           </div>
           <Card
-            className="bg-glass flex w-fit flex-row items-center gap-2.5 p-3 text-muted-foreground transition-colors duration-300 hover:cursor-pointer hover:bg-white/5 hover:text-white vsm:gap-3 vsm:p-4 vmd:gap-4 vmd:p-5 vlg:gap-5 vlg:p-6 vxl:gap-6 vxl:p-7 v2xl:gap-8 v2xl:p-10"
+            className="bg-button !rounded-full !border-0 border-transparent backdrop-blur-ui-none overflow-hidden flex w-fit flex-row items-center gap-1.5 p-3 text-muted-foreground transition-colors duration-300 hover:cursor-pointer hover:bg-white/5 hover:text-white vsm:gap-2 vsm:p-4 vmd:gap-2.5 vmd:p-5 vlg:gap-3 vlg:p-6 vxl:gap-3.5 vxl:p-7 v2xl:gap-4 v2xl:p-10"
             onClick={() => handleScroll('projects')}
           >
-            <p className="type-h2">View Selected Work</p>
-            <ArrowRight className="h-4 w-4 vsm:h-5 vsm:w-5 vmd:h-7 vmd:w-7 vlg:h-8 vlg:w-8 vxl:h-9 vxl:w-9 v2xl:h-10 v2xl:w-10"/>
+            <p className="type-h2 !text-background/80 !font-extrabold">View Selected Work</p>
+            <ArrowRight className="h-3.5 w-3.5 vsm:h-4 vsm:w-4 vmd:h-5 vmd:w-5 vlg:h-6 vlg:w-6 vxl:h-7 vxl:w-7 v2xl:h-8 v2xl:w-8 !text-background/80"/>
           </Card>
         </div>
       </div>

@@ -15,8 +15,8 @@ export default function About() {
     id="about"
     className="mx-auto scroll-mt-20"
     style={{ maxWidth: 'calc(100vh * 1.1)' }}>
-      <div className="flex justify-center gap-16 p-8 py-32 bg-white/3 backdrop-blur-xl">
-      <div className="flex flex-col gap-6 w-2/3">
+      <div className="flex justify-center gap-8 py-16">
+      <div className="flex flex-col gap-6 w-2/3 bg-simple-background rounded-2xl p-8">
             <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
             <Tooltip>
@@ -69,8 +69,8 @@ export default function About() {
             <span className="type-h4">Warsaw<span className="mx-2 type-h4">•</span>Poland</span>
           </div>
           </div>
-        <div className="border-ui-glass relative w-1/2 flex bg-glass backdrop-blur-ui rounded-2xl overflow-hidden">
-        <p className="absolute top-1/2 left-1/2 text-center text-foreground/20 z-[-10] opacity-5" style={{ fontFamily: 'var(--font-wdxl-lubrifont-sc)', fontSize: '32rem', lineHeight: 1, transform: 'translate(-5%, -65%)', transformOrigin: 'center' }}>
+        <div className="relative w-1/2 flex bg-simple-background rounded-2xl overflow-hidden">
+        <p className="absolute top-1/2 left-1/2 text-center text-foreground/20 z-[-10] opacity-15" style={{ fontFamily: 'var(--font-wdxl-lubrifont-sc)', fontSize: '32rem', lineHeight: 1, transform: 'translate(-5%, -67%)', transformOrigin: 'center' }}>
             未<br/>来
           </p>
           <Image

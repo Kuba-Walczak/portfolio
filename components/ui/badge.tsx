@@ -14,13 +14,11 @@ const badgeVariants = cva(
         secondary:
           "bg-white/5 backdrop-blur-ui",
         programming:
-          "bg-sky-500/50 backdrop-blur-ui",
+          "bg-button border-transparent",
         technicalArt:
-          "bg-violet-500/50 backdrop-blur-ui",
-        comingSoon:
-          "bg-gray-500/50 backdrop-blur-ui",
+          "bg-button border-transparent",
         art:
-          "bg-rose-500/50 backdrop-blur-ui",
+          "bg-button border-transparent",
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
       },

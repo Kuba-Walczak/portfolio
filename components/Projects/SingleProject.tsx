@@ -34,8 +34,8 @@ export function SingleProject({ project }: { project: Project }) {
             project.status === 'coming-soon'
               ? 'pointer-events-none'
               : isSelected
-                ? 'border-ui-color-primary ring-primary bg-white/5 cursor-pointer hover:bg-white/5'
-                : 'border-ui-hover-primary/50 ring-white/10 hover:ring-primary/50 hover:bg-white/5 cursor-pointer'
+                ? 'cursor-pointer !bg-[#8455ed]/50 ring-1 ring-primary/50'
+                : 'hover:bg-white/10 cursor-pointer'
           }`}
           onClick={() => {
             if (project.status === 'coming-soon') return
@@ -97,7 +97,7 @@ export function SingleProject({ project }: { project: Project }) {
               return (
                 <Badge
                   key={tagObject.id}
-                  variant={tagObject.style as "programming" | "technicalArt" | "art" | "comingSoon"}
+                  variant={tagObject.style as "programming" | "technicalArt" | "art"}
                 >
                   {tagObject.title}
                 </Badge>

@@ -15,7 +15,7 @@ export function Gallery() {
           {selectedProject?.laptop?.gallery.map((content: GalleryContent) => (
               <div key={content.caption} className="border-ui-glass flex flex-col overflow-hidden rounded-lg vsm:rounded-xl">
                 <div className="flex items-center justify-center bg-glass backdrop-blur-ui p-1 vsm:p-1.5 vmd:p-2 vlg:p-3 rounded-t-lg vsm:rounded-t-xl">
-                  <p className="font-medium text-xs vsm:text-sm vmd:text-base vlg:text-2xl vxl:text-3xl v2xl:text-4xl opacity-100 text-center leading-tight">
+                  <p className="font-medium text-[10px] vsm:text-xs vmd:text-sm vlg:text-xl vxl:text-2xl v2xl:text-3xl opacity-100 text-center leading-tight">
                     {content?.caption}
                   </p>
                 </div>

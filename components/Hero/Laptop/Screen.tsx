@@ -32,8 +32,18 @@ export function Screen() {
     }
 
     if (!selectedProject) return null
+    const withOpacity50 = (color: string) => `color-mix(in srgb, ${color} 10%, transparent)`
+    const rawColorBase = selectedProject.laptop.colors[0] ?? '#000000'
+    const colorBase = withOpacity50(rawColorBase)
+    const colorAccent = withOpacity50(selectedProject.laptop.colors[1] ?? rawColorBase)
     return (
-            <div className="w-full h-full flex flex-col rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl"> {/* inset-shadow-pseudo */}
+            <div
+              className="w-full h-full flex flex-col rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl"
+              style={{
+                backgroundColor: colorBase,
+                backgroundImage: `radial-gradient(circle at top left, ${colorAccent} 0%, transparent 100%)`,
+              }}
+            > {/* inset-shadow-pseudo */}
         <Tabs
           value={activeTab}
           onValueChange={(value) => {
@@ -48,10 +58,10 @@ export function Screen() {
         >
           <div className="flex justify-center w-full bg-white/3 rounded-t-xl vsm:rounded-t-2xl vmd:rounded-t-3xl vlg:rounded-t-4xl">
             <TabsList>
-              <TabsTrigger value="showcase">Showcase</TabsTrigger>
-              <TabsTrigger value="details">Details</TabsTrigger>
-              <TabsTrigger value="gallery">Gallery</TabsTrigger>
-              <TabsTrigger value="close" className="hover:text-red-500 dark:hover:text-red-400">
+              <TabsTrigger value="showcase" className="text-sm vsm:text-lg vmd:text-2xl vlg:text-3xl">Showcase</TabsTrigger>
+              <TabsTrigger value="details" className="text-sm vsm:text-lg vmd:text-2xl vlg:text-3xl">Details</TabsTrigger>
+              <TabsTrigger value="gallery" className="text-sm vsm:text-lg vmd:text-2xl vlg:text-3xl">Gallery</TabsTrigger>
+              <TabsTrigger value="close" className="text-sm vsm:text-lg vmd:text-2xl vlg:text-3xl hover:text-red-500 dark:hover:text-red-400">
                 Close
               </TabsTrigger>
             </TabsList>

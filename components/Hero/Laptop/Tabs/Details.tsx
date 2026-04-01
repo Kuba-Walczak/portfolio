@@ -19,7 +19,7 @@ export function Details({
             <Code2 className="h-8 w-8 vsm:h-10 vsm:w-10 vmd:h-12 vmd:w-12 vlg:h-16 vlg:w-16 text-foreground" />
           </div>
           <div className="flex-1">
-            <h3 className="text-xs vmd:text-sm vlg:text-lg font-medium text-muted-foreground mb-1 vsm:mb-2 vlg:mb-3">
+            <h3 className="text-[10px] vmd:text-xs vlg:text-base font-medium text-muted-foreground mb-1 vsm:mb-2 vlg:mb-3">
               Tech Stack
             </h3>
             <div className="flex flex-wrap gap-1 vlg:gap-2">
@@ -27,7 +27,7 @@ export function Details({
                 <Badge
                   key={tech}
                   variant="secondary"
-                  className="px-1 py-0.5 vsm:px-2 vsm:py-1 vlg:px-3 text-xs vsm:text-sm vmd:text-lg vlg:text-2xl font-medium bg-transparent backdrop-blur-ui-none"
+                  className="px-1 py-0.5 vsm:px-2 vsm:py-1 vlg:px-3 text-[10px] vsm:text-xs vmd:text-base vlg:text-xl font-medium bg-transparent backdrop-blur-ui-none"
                 >
                   {tech}
                 </Badge>
@@ -40,10 +40,10 @@ export function Details({
       <Card className="p-1 vsm:p-2 vmd:p-3 vlg:p-4">
         <div className="flex items-center gap-1 vsm:gap-2 vlg:gap-4">
             <div className="flex-1">
-            <h3 className="text-xs vmd:text-sm vlg:text-md font-medium text-muted-foreground mb-0.5 vsm:mb-1 vlg:mb-2">
+            <h3 className="text-[10px] vmd:text-xs vlg:text-sm font-medium text-muted-foreground mb-0.5 vsm:mb-1 vlg:mb-2">
               Description
             </h3>
-            <p className="text-xs vmd:text-sm vlg:text-lg leading-relaxed text-justify text-foreground/90">
+            <p className="text-[10px] vmd:text-xs vlg:text-base leading-relaxed text-justify text-foreground/90">
               {description}
             </p>
           </div>
@@ -52,10 +52,10 @@ export function Details({
       <Card className="p-1 vsm:p-2 vmd:p-3 vlg:p-4">
         <div className="flex items-center gap-1 vsm:gap-2 vlg:gap-4">
             <div className="flex-1">
-            <h3 className="text-xs vmd:text-sm vlg:text-md font-medium text-muted-foreground mb-0.5 vsm:mb-1 vlg:mb-2">
+            <h3 className="text-[10px] vmd:text-xs vlg:text-sm font-medium text-muted-foreground mb-0.5 vsm:mb-1 vlg:mb-2">
               Features
             </h3>
-            <ul className="text-xs vmd:text-sm vlg:text-lg leading-relaxed text-justify text-foreground/90 list-disc list-inside">
+            <ul className="text-[10px] vmd:text-xs vlg:text-base leading-relaxed text-justify text-foreground/90 list-disc list-inside">
               <li>Feature 1</li>
               <li>Feature 2</li>
               <li>Feature 3</li>

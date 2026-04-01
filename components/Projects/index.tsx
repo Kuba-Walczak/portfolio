@@ -29,7 +29,7 @@ export default function Projects() {
     style={{ maxWidth: 'calc(100vh * 1.1)' }}>
     <div
     className="flex flex-col gap-16 p-8 rounded-2xl bg-simple-background backdrop-blur-xl">
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-4">
         {filteredProjects?.map((project) => (
           <SingleProject key={project.id} project={project}/>
         ))}

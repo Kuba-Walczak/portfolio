@@ -56,28 +56,28 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
             <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-ui-none">
             <FileText className="h-6 w-6 vsm:h-8 vsm:w-8 vmd:h-10 vmd:w-10 vlg:h-12 vlg:w-12 text-foreground" />
             <div>
-              <h3 className="text-xs vmd:text-sm vlg:text-lg font-medium text-muted-foreground">
+              <h3 className="text-[10px] vmd:text-xs vlg:text-base font-medium text-muted-foreground">
                 Title
               </h3>
-              <p className="text-sm vsm:text-base vmd:text-xl vlg:text-3xl font-medium">{title}</p>
+              <p className="text-xs vsm:text-sm vmd:text-lg vlg:text-2xl font-medium">{title}</p>
             </div>
         </Card>
         <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-ui-none">
             <Calendar className="h-6 w-6 vsm:h-8 vsm:w-8 vmd:h-10 vmd:w-10 vlg:h-12 vlg:w-12 text-foreground" />
             <div>
-              <h3 className="text-xs vmd:text-sm vlg:text-lg font-medium text-muted-foreground">
+              <h3 className="text-[10px] vmd:text-xs vlg:text-base font-medium text-muted-foreground">
                 Date
               </h3>
-              <p className="text-sm vsm:text-base vmd:text-xl vlg:text-3xl font-medium">{date}</p>
+              <p className="text-xs vsm:text-sm vmd:text-lg vlg:text-2xl font-medium">{date}</p>
             </div>
         </Card>
         <Card className="flex flex-row items-center justify-center gap-1 vsm:gap-2 vmd:gap-3 vlg:gap-4 p-1 vsm:p-2 vmd:p-3 vlg:p-4 bg-transparent backdrop-blur-ui-none">
             <Clock className="h-6 w-6 vsm:h-8 vsm:w-8 vmd:h-10 vmd:w-10 vlg:h-12 vlg:w-12 text-foreground" />
             <div>
-              <h3 className="text-xs vmd:text-sm vlg:text-lg font-medium text-muted-foreground">
+              <h3 className="text-[10px] vmd:text-xs vlg:text-base font-medium text-muted-foreground">
                 Duration
               </h3>
-              <p className="text-sm vsm:text-base vmd:text-xl vlg:text-3xl font-medium">{duration}</p>
+              <p className="text-xs vsm:text-sm vmd:text-lg vlg:text-2xl font-medium">{duration}</p>
             </div>
         </Card>
         <Card 
@@ -97,7 +97,7 @@ export function Showcase({ title, date, duration }: ShowcaseProps) {
                 loop
                 muted
                 playsInline
-                className="border-ui-strong-glass rounded-xl"
+                className="border-ui-glass rounded-xl"
             />
             </div>
         </div>

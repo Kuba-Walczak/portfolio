@@ -149,13 +149,13 @@ function ModelContent(props: any) {
     const stage2Root: Vector6D = new Vector6D(0, -0.15, -2.5, -170 / 180 * Math.PI, 0, Math.PI)
     const stage2Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, Math.PI / 2, 0, 0)
 
-    const stage3Root: Vector6D = new Vector6D(0, -0.2, -0.7, -185 / 180 * Math.PI, 0, Math.PI)
+    const stage3Root: Vector6D = new Vector6D(0, -0.19, -0.5, -185 / 180 * Math.PI, 0, Math.PI)
     const stage3Hinge: Vector6D = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
 
-    const stage1RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
-    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, 85 / 180 * Math.PI, 0, 0)
+    const stage1RootAlt = new Vector6D(0, -0.177, -0.5, -180 / 180 * Math.PI, 0, Math.PI)
+    const stage1HingeAlt = new Vector6D(0, -0.003, -0.009, 90 / 180 * Math.PI, 0, 0)
 
-    const stage2RootAlt = new Vector6D(0, -0.1677, -0.25, -185 / 180 * Math.PI, 0, Math.PI)
+    const stage2RootAlt = new Vector6D(0, -0.19, -0.5, -185 / 180 * Math.PI, 0, Math.PI)
     const stage2HingeAlt = new Vector6D(0, -0.003, -0.009, 0, 0, 0)
 
     const getTargetValues = (progress: number) => {

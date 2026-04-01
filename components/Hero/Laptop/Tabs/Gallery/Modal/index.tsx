@@ -13,7 +13,7 @@ export function Modal() {
           onClick={() => setSelectedContent(null)}
         >
           <div className="border-ui-glass relative flex items-center justify-end bg-glass backdrop-blur-ui p-1 vsm:p-2 vmd:p-3 rounded-t-lg vsm:rounded-t-xl">
-            <p className="absolute left-1/2 -translate-x-1/2 text-center text-sm text-white vsm:text-lg vmd:text-xl vlg:text-2xl vxl:text-3xl v2xl:text-4xl">
+            <p className="absolute left-1/2 -translate-x-1/2 text-center text-xs text-white vsm:text-base vmd:text-lg vlg:text-xl vxl:text-2xl v2xl:text-3xl">
               {selectedContent?.caption}
             </p>
             <Card className="flex items-center justify-center rounded-lg px-4 py-0.5 backdrop-blur-ui-none transition-colors vsm:px-8 vsm:py-1 vmd:px-10 vlg:px-12 hover:bg-white/10">

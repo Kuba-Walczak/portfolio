@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card"
 import { Project } from "@/types/project"
 
-export function EcosystemMedia({ project }: { project: Project | undefined}) {
+export function EcosystemMedia({ project }: { project: Project }) {
   return (
     <section className="px-6 py-20 max-w-5xl mx-auto">
       {/* Section header */}

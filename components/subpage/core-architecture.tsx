@@ -1,36 +1,27 @@
 import { Card } from "@/components/ui/card"
-import { Project } from "@/types/project";
-import { Brain, Shield, Zap, Network, Sparkles } from "lucide-react"
+import { Project } from "@/types/project"
+import {
+  Brain,
+  Car,
+  Layers,
+  LucideIcon,
+  Network,
+  Shield,
+  SlidersHorizontal,
+  Sparkles,
+  Zap,
+} from "lucide-react"
 
-const features = [
-  {
-    icon: Brain,
-    title: "Neural Synchronization",
-    description:
-      "Real-time synchronization between edge nodes and core intelligence centers, ensuring sub-10ms latency for global operations.",
-  },
-  {
-    icon: Shield,
-    title: "Quantum Encryption",
-    description:
-      "End-to-end security protocols utilizing lattice-based cryptography for future-proof data protection.",
-  },
-  {
-    icon: Zap,
-    title: "Supersonic Processing",
-    description: "Optimized for high-frequency data streams and massive parallelization.",
-  },
-  {
-    icon: Network,
-    title: "Decentralized Mesh",
-    description: "Self-healing network architecture that scales dynamically with demand.",
-  },
-  {
-    icon: Sparkles,
-    title: "Adaptive Learning",
-    description: "Autonomous optimization routines that evolve based on environmental feedback.",
-  },
-]
+const ICON_BY_NAME: Record<string, LucideIcon> = {
+  brain: Brain,
+  car: Car,
+  layers: Layers,
+  network: Network,
+  shield: Shield,
+  sliders: SlidersHorizontal,
+  sparkles: Sparkles,
+  zap: Zap,
+}
 
 function FeatureIcon({ Icon }: { Icon: React.ElementType<{ className?: string; style?: React.CSSProperties }>
 }) {
@@ -43,8 +34,8 @@ function FeatureIcon({ Icon }: { Icon: React.ElementType<{ className?: string; s
   )
 }
 
-export function CoreArchitecture({ project }: { project: Project | undefined}) {
-  const isDense = project?.subpage?.feature.length && project?.subpage?.feature.length > 6
+export function CoreArchitecture({ project }: { project: Project }) {
+  const isDense = project.subpage.feature.length > 6
 
   return (
     <section className="px-6 py-20 max-w-5xl mx-auto">
@@ -58,12 +49,12 @@ export function CoreArchitecture({ project }: { project: Project | undefined}) {
 
       {/* Responsive feature grid */}
       <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
-        {project?.subpage?.feature.map((feature) => (
+        {project.subpage.feature.map((feature) => (
           <Card
             key={feature.title}
             className={isDense ? "p-4" : "p-6"}
           >
-            <FeatureIcon Icon={feature.icon as unknown as React.ElementType<{ className?: string; style?: React.CSSProperties }>} />
+            <FeatureIcon Icon={ICON_BY_NAME[feature.icon.toLowerCase()] ?? Sparkles} />
             <h3
               className={
                 isDense

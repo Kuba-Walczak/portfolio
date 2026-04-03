@@ -1,4 +1,5 @@
-import { GalleryContent, GalleryMedia, Project } from "@/types/project";
+import { Project } from "@/types/project"
+import { parseProjects } from "@/lib/project-schema"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -10,12 +11,13 @@ export async function fetchProjects(url: string): Promise<Project[]> {
   const res = await fetch(url)
   if (!res.ok) throw new Error(`Failed to fetch projects: ${res.status}`)
   const data = await res.json()
-  data.forEach((project: Project & { laptop?: { gallery?: GalleryContent[] } }) => {
-    const gallery = project.subpage?.gallery ?? project.laptop?.gallery ?? []
-    gallery.forEach((content: GalleryContent) => {
-      content.media.forEach((media: GalleryMedia) => {
-      const img = new Image()
-      img.src = media.src
+  const projects = parseProjects(data)
+
+  projects.forEach((project) => {
+    project.subpage.gallery.forEach((content) => {
+      content.media.forEach((media) => {
+        const img = new Image()
+        img.src = media.src
         img.onload = () => {
           media.width = img.naturalWidth
           media.height = img.naturalHeight
@@ -23,5 +25,6 @@ export async function fetchProjects(url: string): Promise<Project[]> {
       })
     })
   })
-  return data as Project[]
+
+  return projects
 }

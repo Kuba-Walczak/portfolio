@@ -305,7 +305,7 @@ function ModelContent(props: any) {
           if (scrollY === 0 && projectView) setLaptopReady(true)
         }
       })
-    }, [scrollY, projectView, isModelLoadedRef.current])
+    }, [])
 
     const shaderTest = useCustomShader(texture)
 

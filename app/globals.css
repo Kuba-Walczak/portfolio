@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
 @custom-variant vsm (@media (min-height: 640px));
 @custom-variant vmd (@media (min-height: 768px));
 @custom-variant vlg (@media (min-height: 1024px));
@@ -10,15 +8,25 @@
 @custom-variant v2xl (@media (min-height: 1536px));
 
 :root {
+
   --radius: 0.65rem;
-  --background: hsl(0 0% 100%);
-  --card: hsl(0 0% 100%);
-  --primary: hsl(0 0% 9%);
-  --secondary: hsl(0 0% 96.1%);
-  --muted: hsl(0 0% 96.1%);
-  --accent: hsl(0 0% 96.1%);
+  
+  --background: hsl(240, 32%, 7%);
+
+  --primary: hsl(255, 83%, 58%);
+  --secondary: hsl(258, 83%, 64%);
+  --accent: hsl(238, 100%, 78%);
+
+  --text-primary: hsl(240, 25%, 100%);
+  --text-secondary: color-mix(in srgb, var(--text-primary) 60%, transparent);
+
   --glass: rgb(255 255 255 / 0.03);
   --simple-background: rgb(30 30 46 / 0.3);
+
+  --card-background: hsl(240, 25%, 10%);
+  --card-border: hsl(240, 21%, 12%);
+
+
   /*
    * Controllable UI borders — toggle site-wide from here.
    * Set --ui-border-width to 1px (or 2px) to show borders; keep 0px to hide.
@@ -55,34 +63,6 @@
   );
   --bg-button: linear-gradient(135deg, #ba9eff 0%, #8455ed 100%);
 }
-
-.dark {
-  --background: hsl(0 0% 3.9%);
-  --foreground: hsl(0 0% 98%);
-  --card: hsl(0 0% 3.9%);
-  --card-foreground: hsl(0 0% 98%);
-  --popover: hsl(0 0% 3.9%);
-  --popover-foreground: hsl(0 0% 98%);
-  --primary: hsl(255, 83%, 58%);
-  --primary-foreground: hsl(0 0% 9%);
-  --secondary: hsl(0 0% 14.9%);
-  --secondary-foreground: hsl(0 0% 98%);
-  --muted: hsl(0 0% 14.9%);
-  --muted-foreground: hsl(0 0% 63.9%);
-  --accent: hsl(0 0% 14.9%);
-  --accent-foreground: hsl(0 0% 98%);
-  --destructive: hsl(0 62.8% 30.6%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(0 0% 14.9%);
-  --input: hsl(0 0% 14.9%);
-  --ring: hsl(0 0% 83.1%);
-  --chart-1: hsl(220 70% 50%);
-  --chart-2: hsl(160 60% 45%);
-  --chart-3: hsl(30 80% 55%);
-  --chart-4: hsl(280 65% 60%);
-  --chart-5: hsl(340 75% 55%);
-}
-
 
 @theme {
   --breakpoint-3xl: 130rem;
@@ -325,107 +305,5 @@
       vmd:text-lg
       vlg:text-2xl;
     font-family: var(--font-space-grotesk);
-  }
-
-  /** Aurora background — slow drift (see components/Background.tsx) */
-  .animate-aurora-1 {
-    animation: aurora-drift-1 78s ease-in-out infinite;
-  }
-  .animate-aurora-2 {
-    animation: aurora-drift-2 96s ease-in-out infinite;
-  }
-  .animate-aurora-3 {
-    animation: aurora-drift-3 112s linear infinite;
-  }
-  .animate-aurora-4 {
-    animation: aurora-drift-4 68s ease-in-out infinite;
-  }
-  .animate-aurora-5 {
-    animation: aurora-drift-5 88s ease-in-out infinite;
-  }
-
-  .animate-glyph-fade {
-    animation: glyph-fade 220ms ease-out forwards;
-  }
-
-  .animate-glyph-fade-out {
-    animation: glyph-fade-out 220ms ease-out forwards;
-  }
-}
-
-@keyframes aurora-drift-1 {
-  0%,
-  100% {
-    transform: translate3d(0%, 0%, 0) scale(1);
-  }
-  33% {
-    transform: translate3d(4%, -3%, 0) scale(1.05);
-  }
-  66% {
-    transform: translate3d(-3%, 2%, 0) scale(0.97);
-  }
-}
-
-@keyframes aurora-drift-2 {
-  0%,
-  100% {
-    transform: translate3d(0%, 0%, 0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translate3d(-5%, 4%, 0) rotate(-3deg) scale(1.07);
-  }
-}
-
-@keyframes aurora-drift-3 {
-  0%,
-  100% {
-    transform: translate3d(0%, 0%, 0);
-  }
-  40% {
-    transform: translate3d(3%, 5%, 0);
-  }
-  80% {
-    transform: translate3d(-4%, -2%, 0);
-  }
-}
-
-@keyframes aurora-drift-4 {
-  0%,
-  100% {
-    transform: translate3d(0%, 0%, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(5%, -4%, 0) scale(1.1);
-  }
-}
-
-@keyframes aurora-drift-5 {
-  0%,
-  100% {
-    transform: translate3d(0%, 0%, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate3d(-2%, 3%, 0) rotate(2deg);
-  }
-  75% {
-    transform: translate3d(3%, -2%, 0) rotate(-2deg);
-  }
-}
-
-@keyframes glyph-fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes glyph-fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }

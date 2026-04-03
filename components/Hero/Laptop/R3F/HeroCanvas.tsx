@@ -1,7 +1,9 @@
-import { Canvas } from '@react-three/fiber'
-import { EffectComposer, DepthOfField, Bloom, Noise, Vignette, Sepia } from '@react-three/postprocessing'
+'use client'
 
-export function CustomCanvas({ children }: { children: React.ReactNode }) {
+import { Canvas } from '@react-three/fiber'
+import type { ReactNode } from 'react'
+
+export function HeroCanvas({ children }: { children: ReactNode }) {
   return (
     <Canvas
       style={{ pointerEvents: 'none' }}

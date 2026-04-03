@@ -6,6 +6,7 @@ import { AppProvider } from '@/contexts/AppContext'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import Header from '@/components/Header'
 import './globals.css'
+import Footer from "@/components/Footer"
 
 const _inter = Inter({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -50,12 +51,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body className={`font-sans antialiased ${wdxlLubrifontSC.variable} ${spaceGrotesk.variable} ${manrope.variable}`}>
         <AppProvider>
           <TooltipProvider>
             <Header />
             {children}
+            <Footer />
           </TooltipProvider>
           <Analytics />
         </AppProvider>

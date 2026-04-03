@@ -1,6 +1,6 @@
 'use client'
 
-import { CustomCanvas } from '@/components/Hero/Laptop/R3F/CustomCanvas'
+import { CustomCanvas } from '@/components/Hero/Laptop/R3F/HeroCanvas'
 import { Model } from '@/components/Hero/Laptop/R3F/Model'
 import { useScroll } from '@/hooks/useScroll'
 import { useApp } from '@/contexts/AppContext'

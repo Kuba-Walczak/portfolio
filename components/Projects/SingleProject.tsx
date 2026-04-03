@@ -5,9 +5,11 @@ import { gsap } from "gsap"
 import { getTag, Tag } from "@/types/tag"
 import { useRef, useEffect } from "react"
 import { MousePointerClickIcon } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export function SingleProject({ project }: { project: Project }) {
-    const { projectView, setProjectView, selectedTab, setSelectedTab, projects, selectedProject, setSelectedProject } = useApp()
+    const router = useRouter()
+    const { selectedTab, setSelectedTab, selectedProject, setSelectedProject } = useApp()
     const isSelected = selectedProject?.id === project.id
     const scrollAnimationRef = useRef<gsap.core.Tween | null>(null)
 
@@ -39,26 +41,12 @@ export function SingleProject({ project }: { project: Project }) {
           }`}
           onClick={() => {
             if (project.status === 'coming-soon') return
-            if (isSelected) {
-              setSelectedProject(null)
-              setProjectView(false)
-            } else {
-              if (!projectView) setProjectView(true)
-              if (selectedTab !== 'Showcase') setSelectedTab('Showcase')
-              setSelectedProject(project)
-              const scrollProxy = { y: window.pageYOffset }
-              scrollAnimationRef.current = gsap.to(scrollProxy, {
-                y: 0,
-                duration: 1.5,
-                overwrite: "auto",
-                onUpdate: () => {
-                  window.scrollTo(0, scrollProxy.y)
-                },
-                onComplete: () => {
-                  scrollAnimationRef.current = null
-                },
-              })
-            }
+            // Keep existing in-app state in sync, then route to the project subpage.
+            if (selectedTab !== 'Showcase') setSelectedTab('Showcase')
+            setSelectedProject(project)
+
+            // Route to `/${project.id}` (e.g. `/traffic-simulation`).
+            router.push(`/${project.id}`)
           }}
           >
         {/* Header */}

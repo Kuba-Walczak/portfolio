@@ -3,7 +3,7 @@ export interface Project {
     status: 'ready' | 'coming-soon';
     title: string;
     card: ProjectCard;
-    laptop: ProjectLaptop;
+    subpage: ProjectSubpage;
 }
 
 export interface ProjectCard {
@@ -12,7 +12,7 @@ export interface ProjectCard {
     thumbnail: string;
 }
 
-export interface ProjectLaptop {
+export interface ProjectSubpage {
     colors: string[];
     description: string;
     feature: string[];

@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card"
+import { Project } from "@/types/project";
 import { Brain, Shield, Zap, Network, Sparkles } from "lucide-react"
 
 const features = [
@@ -45,7 +46,7 @@ function FeatureIcon({
   )
 }
 
-export function CoreArchitecture() {
+export function CoreArchitecture({ project }: { project: Project | undefined}) {
   const isDense = features.length > 6
 
   return (

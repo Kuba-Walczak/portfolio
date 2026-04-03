@@ -1,6 +1,6 @@
 'use client'
 
-import { CustomCanvas } from '@/components/Hero/Laptop/R3F/HeroCanvas'
+import { HeroCanvas } from '@/components/Hero/Laptop/R3F/HeroCanvas'
 import { Model } from '@/components/Hero/Laptop/R3F/Model'
 import { useScroll } from '@/hooks/useScroll'
 import { useApp } from '@/contexts/AppContext'
@@ -120,9 +120,9 @@ export default function Hero() {
       </div>
       </div>
       <div className="absolute inset-0 w-full h-full pointer-events-none">
-      <CustomCanvas>
+      <HeroCanvas>
         <Model/>
-      </CustomCanvas>
+      </HeroCanvas>
       </div>
       {isScreenMounted && (
         <div 

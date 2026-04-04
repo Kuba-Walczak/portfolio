@@ -6,9 +6,10 @@ import type { ReactNode } from 'react'
 export function HeroCanvas({ children }: { children: ReactNode }) {
   return (
     <Canvas
+      dpr={[1.5, 2]}
       style={{ pointerEvents: 'none' }}
       gl={{ alpha: false }}
-      camera={{ position: [0, 0, 1.6], fov: 10 }}
+      camera={{ position: [0, 0, 0], fov: 25 }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0)
       }}>

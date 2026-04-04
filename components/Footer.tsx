@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="w-full scroll-mt-20 py-2 bg-simple-background">
       <div className="mx-auto">
-        <p className="type-h4 text-center">
+        <p className="type-h2 text-center">
           © {currentYear} Kuba Walczak
         </p>
       </div>

@@ -46,7 +46,8 @@ export function VideoModal({
       aria-label={`${title} video modal`}
     >
       <div
-        className="relative w-full max-w-5xl"
+        className="relative"
+        style={{ maxWidth: "calc(100vh * 1.1)" }}
         onClick={(event) => event.stopPropagation()}
       >
         <Card className="relative rounded-b-none p-6 pr-32 bg-background">
@@ -67,7 +68,7 @@ export function VideoModal({
             className="absolute right-4 top-4 text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
             aria-label="Close modal"
           >
-            <X className="h-8 w-8"/>
+            <X className="h-8 w-8 cursor-pointer"/>
           </button>
         </Card>
 

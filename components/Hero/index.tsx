@@ -8,20 +8,36 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Button } from '../ui/button'
 import { useEffect, useRef } from 'react'
+import { useApp } from '@/contexts/AppContext'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
-  const scrollY = useScroll()
+  const { animationReady } = useApp()
+  const heroContainerRef = useRef<HTMLDivElement>(null)
   const elementTopRef = useRef<number>(0)
   const scrollTweenRef = useRef<gsap.core.Tween | null>(null)
 
   useEffect(() => {
     const element = document.getElementById("projects")
     if (element) {
-      elementTopRef.current = element.getBoundingClientRect().top
+      elementTopRef.current = element.getBoundingClientRect().top - element.offsetHeight
     }
+    gsap.set(heroContainerRef.current, {
+      x: "+=150%",
+      duration: 1,
+      ease: "power2.inOut",
+    })
   }, [])
+
+  useEffect(() => {
+    if (!animationReady) return
+    gsap.to(heroContainerRef.current, {
+      x: 0,
+      duration: 2.5,
+      ease: "power2.inOut",
+    })
+  }, [animationReady])
 
   const killScrollAnimation = () => {
     if (scrollTweenRef.current) {
@@ -52,9 +68,12 @@ export default function Hero() {
         className="mx-auto h-[75vh] relative flex flex-col justify-center"
     style={{ maxWidth: 'calc(100vh * 1.1)' }}
       >
-      <div className={`rounded-2xl flex flex-col w-fit transition-opacity duration-200`}>
-      <div className={`w-fit transition-transform duration-100 ease-out relative rounded-2xl w-full origin-center`}>
-        <div className="flex flex-col justify-center gap-4 vsm:gap-5 vmd:gap-6 vlg:gap-7 vxl:gap-8 v2xl:gap-10">
+      <div
+      className="w-fit relative rounded-2xl origin-center"
+      style={{ clipPath: 'inset(0px -45% 0px 0px)' }}>
+        <div
+        ref={heroContainerRef}
+        className="flex flex-col justify-center gap-4 vsm:gap-5 vmd:gap-6 vlg:gap-7 vxl:gap-8 v2xl:gap-10">
           <div className="flex flex-col gap-1.5 vsm:gap-2 -mb-2 vsm:-mb-2 vmd:-mb-2.5 vlg:-mb-3">
             <h2 className="type-h2">
               Technical Artist
@@ -65,13 +84,13 @@ export default function Hero() {
           <h1 className="type-h1 -ml-[0.024em] vsm:-ml-[0.03em] vmd:-ml-[0.04em] vlg:-ml-[0.044em] vxl:-ml-[0.05em] -mt-0.5 vsm:-mt-0.5 vmd:-mt-1 vlg:-mt-1">
             KUBA WALCZAK
           </h1>
-          <div className="gap-1.5 vsm:gap-2">
+          <div className="flex flex-col items-start gap-1.5 vsm:gap-2">
             <h2 className="type-h4">
               Bridging the gap between design and<br/>development through arts and technology
             </h2>
             <Button
               variant="default"
-              className="mt-6 inline-flex cursor-pointer items-center gap-2 px-6 py-2 type-h25"
+              className="mt-6 inline-flex cursor-pointer gap-2 px-6 py-2 type-h25"
               onClick={() => handleScrollTo(elementTopRef.current)}
             >
               View Portfolio
@@ -80,8 +99,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      </div>
-      <div className="absolute inset-0 w-full h-full pointer-events-none">
+      <div className="absolute inset- w-full h-full pointer-events-none">
       <HeroCanvas>
         <Model/>
       </HeroCanvas>

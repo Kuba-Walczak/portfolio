@@ -2,6 +2,8 @@
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import Image from 'next/image'
+import { Button } from '../ui/button'
+import { useApp } from '@/contexts/AppContext'
 
 const skills = [
   { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
@@ -10,6 +12,7 @@ const skills = [
 ]
 
 export default function About() {
+  const { setOpenContacts } = useApp()
   return (
     <section
     id="about"
@@ -73,9 +76,25 @@ export default function About() {
             <span className="type-h25">Location</span>
             <span className="type-h4">Warsaw<span className="mx-2 type-h4">•</span>Poland</span>
           </div>
+          <div className="flex gap-8">
+          <Button
+              variant="default"
+              className="mt-6 inline-flex cursor-pointer gap-2 px-6 py-2 type-h25"
+              onClick={() => setOpenContacts(true)}
+            >
+              View Resume
+            </Button>
+            <Button
+              variant="default"
+              className="mt-6 inline-flex cursor-pointer gap-2 px-6 py-2 type-h25"
+              onClick={() => setOpenContacts(true)}
+            >
+              View Contacts
+            </Button>
+          </div>
           </div>
         <div className="relative w-1/2 flex bg-glass border-ui-glass rounded-2xl overflow-hidden">
-        <p className="absolute top-1/2 left-1/2 text-center text-secondary/20 z-[-10] opacity-15 text-[16rem] vsm:text-[20rem] vmd:text-[24rem] vlg:text-[28rem] vxl:text-[32rem]" style={{ fontFamily: 'var(--font-wdxl-lubrifont-sc)', lineHeight: 1, transform: 'translate(-5%, -67%)', transformOrigin: 'center' }}>
+        <p className="absolute top-1/2 left-1/2 text-center text-accent z-[-10] opacity-15 text-[16rem] vsm:text-[20rem] vmd:text-[24rem] vlg:text-[28rem] vxl:text-[32rem]" style={{ fontFamily: 'var(--font-wdxl-lubrifont-sc)', lineHeight: 1, transform: 'translate(-5%, -67%)', transformOrigin: 'center' }}>
             未<br/>来
           </p>
           <Image

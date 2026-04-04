@@ -7,16 +7,21 @@ import { fetchProjects } from '@/lib/utils'
 interface AppContextType {
   projects: Project[] | null
   setProjects: (projects: Project[] | null) => void
+  animationReady: boolean
+  setAnimationReady: (animationReady: boolean) => void
   heroVideoGlowRef: HTMLDivElement | null
   setHeroVideoGlowRef: (heroVideoGlowRef: HTMLDivElement | null) => void
+  openContacts: boolean
+  setOpenContacts: (openContacts: boolean) => void
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [mainHeader, setMainHeader] = useState(true)
   const [projects, setProjects] = useState<Project[] | null>(null)
+  const [animationReady, setAnimationReady] = useState(false)
   const [heroVideoGlowRef, setHeroVideoGlowRef] = useState<HTMLDivElement | null>(null)
+  const [openContacts, setOpenContacts] = useState(false)
   useEffect(() => {
     const fetchAndUpdate = async () => {
       try {
@@ -34,8 +39,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const value: AppContextType = {
     projects,
     setProjects,
+    animationReady,
+    setAnimationReady,
     heroVideoGlowRef,
     setHeroVideoGlowRef,
+    openContacts,
+    setOpenContacts,
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>

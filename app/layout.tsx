@@ -23,7 +23,10 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'Kuba Walczak | Technical Artist'
+  title: 'Kuba Walczak | Technical Artist',
+  icons: {
+    icon: "/icon.svg",
+  },
 }
 
 export default function RootLayout({

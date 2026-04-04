@@ -15,7 +15,7 @@
 
   --primary: hsl(255, 83%, 58%);
   --secondary: hsl(255, 79%, 65%);
-  --accent: hsla(238, 100%, 78%, 0.5);
+  --accent: hsla(238, 100%, 78%, 0.377);
 
   --text-primary: hsl(0, 0%, 100%);
   --text-secondary: hsl(0, 0%, 70%);
@@ -163,6 +163,16 @@
       vlg:text-xl
       vxl:text-2xl
       v2xl:text-3xl;
+    font-family: var(--font-manrope);
+  }
+
+  .type-h21 {
+    @apply text-pretty text-xs font-normal uppercase tracking-[0.2em] text-[var(--text-secondary)]
+      vsm:text-sm
+      vmd:text-sm
+      vlg:text-base
+      vxl:text-lg
+      v2xl:text-xl;
     font-family: var(--font-manrope);
   }
 

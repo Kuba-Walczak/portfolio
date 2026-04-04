@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ArrowLeft } from "lucide-react"
 import { usePathname, useRouter } from "next/navigation"
@@ -25,10 +25,11 @@ const navItemClass =
 export function Header() {
   const router = useRouter()
   const pathname = usePathname()
-  const { projects } = useApp()
+  const { projects, openContacts, setOpenContacts } = useApp()
   const scrollY = useScroll()
   const scrollTweenRef = useRef<gsap.core.Tween | null>(null)
   const elementTopRef = useRef<number>(0)
+  const scrollThresholdRef = useRef(0.05)
 
   const isMainPage = pathname === "/"
 
@@ -75,7 +76,7 @@ export function Header() {
     window.addEventListener("touchstart", onUserInterrupt, { passive: true })
     const element = document.getElementById("projects")
     if (element) {
-      elementTopRef.current = element.getBoundingClientRect().top
+      elementTopRef.current = element.getBoundingClientRect().top - element.offsetHeight
     }
     return () => {
       window.removeEventListener("wheel", onUserInterrupt)
@@ -102,8 +103,8 @@ export function Header() {
 
   return (
     <header
-      className="mx-auto fixed top-0 left-0 right-0 z-50 flex items-center justify-center px-6 py-4 rounded-b-2xl border-ui-glass transition-colors duration-200"
-      style={{ maxWidth: "calc(100vh * 1.1)", background: scrollY > 0 ? "var(--background)" : "var(--glass)" }}
+      className={`mx-auto fixed top-0 left-0 right-0 z-50 flex items-center justify-center px-6 rounded-b-2xl border-ui-glass transition-all duration-200 ${scrollY > scrollThresholdRef.current ? "py-2" : "py-6"}`}
+      style={{ maxWidth: "calc(100vh * 1.1)", background: scrollY > scrollThresholdRef.current ? "var(--background)" : "var(--glass)" }}
     >
 
       {!isMainPage && (
@@ -140,8 +141,8 @@ export function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="center"
-              sideOffset={32}
-              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${scrollY > 0 ? "bg-background" : "bg-glass"}`}
+              sideOffset={scrollY > scrollThresholdRef.current ? 14 : 32}
+              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${scrollY > scrollThresholdRef.current ? "bg-background" : "bg-glass"} transition-transform duration-200`}
             >
               {projects === null && (
                 <DropdownMenuItem disabled className="cursor-default text-[var(--text-secondary)]">
@@ -199,18 +200,17 @@ export function Header() {
       )}
 
       <div className="absolute right-6 top-1/2 z-10 -translate-y-1/2">
-        <DropdownMenu>
+        <DropdownMenu open={openContacts} onOpenChange={setOpenContacts}>
           <DropdownMenuTrigger asChild>
             <button
               type="button"
               className={cn(
-                "rounded-full outline-none transition-opacity hover:opacity-90",
+                "rounded-full outline-none",
                 "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               )}
-              aria-label="Open contacts menu"
             >
-              <Avatar className="size-9 border-ui-glass overflow-visible">
-                <AvatarFallback className="bg-gradient-to-l from-primary/80 to-secondary/80 transition-colors duration-200 cursor-pointer hover:from-primary hover:to-secondary text-xs font-semibold text-[var(--text-primary)]">
+              <Avatar className={`border-ui-glass overflow-visible transition-all duration-200 ${scrollY > scrollThresholdRef.current ? "size-9" : "size-12"}`}>
+                <AvatarFallback className={`bg-gradient-to-l from-primary/80 to-secondary/80 transition-colors duration-200 cursor-pointer hover:brightness-120 text-xs transition-all duration-200 font-semibold text-[var(--text-primary)] ${scrollY > scrollThresholdRef.current ? "text-xs" : "text-base"}`}>
                   KW
                 </AvatarFallback>
                 <AvatarBadge className="bg-green-600" />
@@ -219,8 +219,8 @@ export function Header() {
           </DropdownMenuTrigger>
             <DropdownMenuContent
               align="center"
-              sideOffset={32}
-              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${scrollY > 0 ? "bg-background" : "bg-glass"}`}
+              sideOffset={scrollY > scrollThresholdRef.current ? 12 : 24}
+              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${scrollY > scrollThresholdRef.current ? "bg-background" : "bg-glass"}`}
             >
               <DropdownMenuLabel className="text-[var(--text-secondary)]">Contacts</DropdownMenuLabel>
               {projects === null && (

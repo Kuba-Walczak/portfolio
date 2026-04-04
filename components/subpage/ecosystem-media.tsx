@@ -142,7 +142,7 @@ export function EcosystemMedia({ project }: { project: Project }) {
           {gallery.map((content, index) => (
             <Card
               key={`${content.caption}-${index}`}
-              className="overflow-hidden rounded-xl p-0 transition duration-200 hover:brightness-120"
+              className="overflow-hidden rounded-xl p-0 transition duration-200 hover:brightness-110 hover:bg-white/5"
             >
               <MediaPreview content={content} onOpenVideo={setSelectedVideo} />
               <div className="flex items-center gap-3 px-4 py-3">

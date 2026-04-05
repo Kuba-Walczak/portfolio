@@ -93,7 +93,7 @@ export default function Hero() {
             I build scalable procedural systems by combining computer graphics and computer science.
             </h2>
             <h2 className="type-h4 hidden xl:block">
-              I build scalable procedural systems by combining computer graphics<br></br>and computer science.
+              I build scalable procedural systems by combining<br></br>computer graphics and computer science.
             </h2>
             <Button
               variant="default"

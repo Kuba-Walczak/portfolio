@@ -55,7 +55,7 @@ export function SingleProject({ project }: { project: Project }) {
             {project.status === 'coming-soon' && (
               <>
                 <div className="absolute inset-0 z-10 bg-gray-900/95 opacity-90 grayscale" />
-                <p className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 text-center text-5xl font-bold opacity-10 text-nowrap text-primary">
+                <p className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 text-center type-h2 opacity-40">
                   COMING SOON
                 </p>
               </>

@@ -5,10 +5,6 @@ import Image from 'next/image'
 import { Button } from '../ui/button'
 import { useApp } from '@/contexts/AppContext'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '../ui/dropdown-menu'
-import { cn } from '@/lib/utils'
-import { Avatar } from '../ui/avatar'
-import { AvatarFallback } from '../ui/avatar'
-import { AvatarBadge } from '../ui/avatar'
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 const skills = [

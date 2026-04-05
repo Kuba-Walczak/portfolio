@@ -1,10 +1,9 @@
 "use client"
 
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ArrowLeft } from "lucide-react"
 import { usePathname, useRouter } from "next/navigation"
-
 import { Avatar, AvatarFallback, AvatarBadge } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 import {
@@ -17,7 +16,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useApp } from "@/contexts/AppContext"
 import { FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa"
-import { useScroll } from "@/hooks/useScroll"
 
 const navItemClass =
   "relative inline-flex items-center gap-0.5 transition-colors duration-200 cursor-pointer bg-transparent border-0 p-0 font-[inherit]"
@@ -26,10 +24,9 @@ export function Header() {
   const router = useRouter()
   const pathname = usePathname()
   const { projects, openContacts, setOpenContacts } = useApp()
-  const scrollY = useScroll()
+  const [isAtTop, setIsAtTop] = useState(true)
   const scrollTweenRef = useRef<gsap.core.Tween | null>(null)
   const elementTopRef = useRef<number>(0)
-  const scrollThresholdRef = useRef(0.05)
 
   const isMainPage = pathname === "/"
 
@@ -70,8 +67,13 @@ export function Header() {
   }
 
   useEffect(() => {
-    const onUserInterrupt = () => killScrollAnimation()
-    window.scrollTo(0, 0)
+    const onScroll = () => {
+      setIsAtTop(window.scrollY <= 10)
+    }
+    const onUserInterrupt = () => { 
+      killScrollAnimation()
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
     window.addEventListener("wheel", onUserInterrupt, { passive: true })
     window.addEventListener("touchstart", onUserInterrupt, { passive: true })
     const element = document.getElementById("projects")
@@ -79,6 +81,7 @@ export function Header() {
       elementTopRef.current = element.getBoundingClientRect().top - element.offsetHeight
     }
     return () => {
+      window.removeEventListener("scroll", onScroll)
       window.removeEventListener("wheel", onUserInterrupt)
       window.removeEventListener("touchstart", onUserInterrupt)
       killScrollAnimation()
@@ -103,8 +106,8 @@ export function Header() {
 
   return (
     <header
-      className={`mx-auto fixed top-0 left-0 right-0 z-50 flex items-center ${isMainPage ? "" : "justify-center"} sm:justify-center px-6 rounded-b-2xl border-ui-glass transition-all duration-200 ${scrollY > scrollThresholdRef.current ? "py-2" : "py-4"}`}
-      style={{ maxWidth: "calc(100vh * 1.1)", background: scrollY > scrollThresholdRef.current ? "var(--background)" : "var(--glass)" }}
+      className={`mx-auto fixed top-0 left-0 right-0 z-50 flex items-center ${isMainPage ? "" : "justify-center"} sm:justify-center px-6 rounded-b-2xl border-ui-glass transition-all duration-200 ${!isAtTop ? "py-2" : "py-4"}`}
+      style={{ maxWidth: "calc(100vh * 1.1)", background: !isAtTop ? "var(--background)" : "var(--glass)" }}
     >
 
       {!isMainPage && (
@@ -141,8 +144,8 @@ export function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="center"
-              sideOffset={scrollY > scrollThresholdRef.current ? 14 : 32}
-              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${scrollY > scrollThresholdRef.current ? "bg-background" : "bg-glass"} transition-transform duration-200`}
+              sideOffset={!isAtTop ? 14 : 32}
+              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${!isAtTop ? "bg-background" : "bg-glass"} transition-transform duration-200`}
             >
               {projects === null && (
                 <DropdownMenuItem disabled className="cursor-default text-[var(--text-secondary)]">
@@ -211,8 +214,8 @@ export function Header() {
                 "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               )}
             >
-              <Avatar className={`border-ui-glass overflow-visible transition-all duration-200 ${scrollY > scrollThresholdRef.current ? "size-8" : "size-10"}`}>
-                <AvatarFallback className={`bg-gradient-to-r from-primary/80 to-secondary/80 transition-colors duration-200 cursor-pointer hover:brightness-120 text-xs transition-all duration-200 font-semibold text-[var(--text-primary)] ${scrollY > scrollThresholdRef.current ? "text-xs" : "text-sm"}`}>
+              <Avatar className={`border-ui-glass overflow-visible transition-all duration-200 ${!isAtTop ? "size-8" : "size-10"}`}>
+                <AvatarFallback className={`bg-gradient-to-r from-primary/80 to-secondary/80 transition-colors duration-200 cursor-pointer hover:brightness-120 text-xs transition-all duration-200 font-semibold text-[var(--text-primary)] ${!isAtTop ? "text-xs" : "text-sm"}`}>
                   KW
                 </AvatarFallback>
                 <AvatarBadge className="bg-green-600" />
@@ -221,8 +224,8 @@ export function Header() {
           </DropdownMenuTrigger>
             <DropdownMenuContent
               align="center"
-              sideOffset={scrollY > scrollThresholdRef.current ? 12 : 24}
-              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${scrollY > scrollThresholdRef.current ? "bg-background" : "bg-glass"}`}
+              sideOffset={!isAtTop ? 12 : 24}
+              className={`min-w-[12rem] border-ui-glass backdrop-blur-xl ${!isAtTop ? "bg-background" : "bg-glass"}`}
             >
               <DropdownMenuLabel className="text-[var(--text-secondary)]">Contacts</DropdownMenuLabel>
               {projects === null && (

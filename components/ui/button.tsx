@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-r from-primary/80 to-secondary/80 text-[var(--text-primary)] border-[var(--card-border)] hover:brightness-120 rounded-full transition-all",
+        default: "bg-gradient-to-r from-primary to-secondary text-[var(--text-primary)] border-[var(--card-border)] hover:brightness-120 rounded-full transition-all",
         glass: "border-ui-glass bg-glass backdrop-blur-ui hover:bg-white/10 text-4xl",
       },
       size: {

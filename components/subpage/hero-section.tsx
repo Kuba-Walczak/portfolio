@@ -27,28 +27,27 @@ export function HeroSection({ project }: { project: Project }) {
   />
   {/* Gradient overlay */}
   <div className="absolute inset-0 pointer-events-none
-  bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,var(--background-rgba)_0%,var(--background)_100%)]" />
+  bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,var(--background-rgba)_0%,var(--background)_100%)]" />
 </div>
         <div className="relative z-10 w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-12">
           <div className="">
-            <h1 className="type-h1 leading-tight whitespace-nowrap relative mb-6">
+            <h1 className="type-h1 leading-tight whitespace-nowrap relative mb-6 text-center">
               <span className="text-[var(--text-primary)]">{project.title}</span>
             </h1>
             <p
-              className="type-h4"
+              className="type-h4 text-center w-3/4 mx-auto"
             >
               {project.subpage.description}
             </p>
             <Button
               variant="default"
-              className="mt-6 inline-flex cursor-pointer items-center gap-16 type-h25"
+              className="mt-6 cursor-pointer items-center mx-auto flex !px-32"
               onClick={() => setIsPreviewOpen(true)}
             >
-              Preview
-              <Play className="size-5" strokeWidth={3} />
+              <Play className="size-8" strokeWidth={3} />
             </Button>
           </div>
-          <div className="flex-1 w-full flex justify-center md:justify-end">
+          {/* <div className="flex-1 w-full flex justify-center md:justify-end">
             <div className="w-[320px] h-[260px] sm:w-[420px] sm:h-[320px] md:w-[440px] md:h-[360px]">
               <SubpageCanvas>
                 <mesh rotation={[0.25, 0.6, 0]}>
@@ -57,7 +56,7 @@ export function HeroSection({ project }: { project: Project }) {
                 </mesh>
               </SubpageCanvas>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

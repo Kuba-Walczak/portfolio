@@ -11,14 +11,21 @@ import { useEffect } from "react"
 
 export default function ProjectSubpage() {
   const { setAnimationReady } = useApp()
-  useEffect(() => {
-    setAnimationReady(false)
-  }, [])
   const { projects } = useApp()
   const params = useParams<{ projectId: string }>()
-
   const rawProjectId = params.projectId
   const projectId = Array.isArray(rawProjectId) ? rawProjectId[0] : rawProjectId
+  const project = projects?.find((p) => p.id === projectId)
+
+  useEffect(() => {
+    setAnimationReady(false)
+    document.documentElement.style.setProperty('--primary', project?.subpage.colors[0] ?? 'hsl(255 83% 58%)')
+    document.documentElement.style.setProperty('--secondary', project?.subpage.colors[1] ?? 'hsl(255 79% 65%)')
+    return () => {
+      document.documentElement.style.setProperty('--primary', 'hsl(255 83% 58%)')
+      document.documentElement.style.setProperty('--secondary', 'hsl(255 79% 65%)')
+    }
+  }, [projects])
 
   if (!projectId || !projects) {
     return (
@@ -27,8 +34,6 @@ export default function ProjectSubpage() {
       </main>
     )
   }
-
-  const project = projects?.find((p) => p.id === projectId)
 
   if (!project) {
     return (

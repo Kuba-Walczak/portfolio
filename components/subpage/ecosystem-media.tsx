@@ -151,7 +151,6 @@ export function EcosystemMedia({ project }: { project: Project }) {
               <MediaPreview content={content} onOpenVideo={setSelectedVideo} />
               <div className="flex items-center gap-3 px-4 py-3">
                 <p className="type-h25">{content.title}</p>
-                {content.type !== "image" && (
                   <MousePointerClickIcon
                     className="ml-auto h-8 w-8"
                     color={`url(#ecosystem-media-icon-gradient-${project.id}-${index})`}
@@ -170,7 +169,6 @@ export function EcosystemMedia({ project }: { project: Project }) {
                       </linearGradient>
                     </defs>
                   </MousePointerClickIcon>
-                )}
               </div>
             </Card>
           ))}

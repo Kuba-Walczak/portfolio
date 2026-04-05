@@ -7,12 +7,6 @@ import { useApp } from '@/contexts/AppContext'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '../ui/dropdown-menu'
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa'
 
-const skills = [
-  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
-  { category: 'Backend', items: ['Node.js', 'PostgreSQL', 'REST APIs', 'Authentication'] },
-  { category: 'Tools', items: ['Git', 'Figma', 'VS Code', 'AWS'] },
-]
-
 const contacts = {
     github: {
       id: "github",
@@ -35,7 +29,7 @@ const contacts = {
   }
 
 export default function About() {
-  const { setOpenContacts, isMobile } = useApp()
+  const { isMobile } = useApp()
   return (
     <section
     id="about"

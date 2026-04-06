@@ -1,7 +1,6 @@
 'use client'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import Image from 'next/image'
 import { Button } from '../ui/button'
 import { useApp } from '@/contexts/AppContext'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '../ui/dropdown-menu'
@@ -46,7 +45,7 @@ export default function About() {
             <div className="flex items-center gap-2">
             <Tooltip>
               <TooltipTrigger asChild>
-                <Image
+                <img
                   src="https://PortfolioPullZone.b-cdn.net/pjait-logo.svg?t=2"
                   alt="PJAIT Logo"
                   width={500}
@@ -60,7 +59,7 @@ export default function About() {
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Image
+                <img
                   src="https://PortfolioPullZone.b-cdn.net/mirai-logo.webp"
                   alt="Mirai Logo"
                   width={500}
@@ -135,7 +134,7 @@ export default function About() {
           <p className="absolute top-1/2 left-1/2 text-center text-accent z-[-10] opacity-15 text-[16rem] vsm:text-[20rem] vmd:text-[24rem] vlg:text-[28rem] vxl:text-[32rem]" style={{ fontFamily: 'var(--font-wdxl-lubrifont-sc)', lineHeight: 1, transform: 'translate(-5%, -67%)', transformOrigin: 'center' }}>
               未<br/>来
             </p>
-            <Image
+            <img
               src="https://PortfolioPullZone.b-cdn.net/LandingPage/FaceForeground.webp"
               className="absolute bottom-0"
               alt="About Me"

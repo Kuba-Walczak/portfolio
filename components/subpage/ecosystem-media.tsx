@@ -32,11 +32,10 @@ function MediaPreview({
           onClick={() => onOpenVideo(content)}
           className="relative block h-52 w-full md:h-56"
         >
-        <Image
+        <img
           src={firstMedia.src}
           alt={content.title}
-          fill
-          className="object-cover cursor-pointer"
+          className="object-cover h-full w-full cursor-pointer"
           sizes="(min-width: 1024px) 32vw, (min-width: 768px) 50vw, 100vw"
         />
       </button>

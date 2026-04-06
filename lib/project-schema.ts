@@ -34,6 +34,7 @@ const SubpageSchema = z.object({
     caption: NonEmptyString,
   }),
   gallery: z.array(GalleryContentSchema),
+  link: NonEmptyString.optional(),
 })
 
 const ProjectCardSchema = z.object({

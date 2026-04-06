@@ -21,6 +21,7 @@ export interface ProjectSubpage {
     duration: string;
     showcase: Showcase;
     gallery: GalleryContent[];
+    link?: string;
 }
 
 export interface Showcase {

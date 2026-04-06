@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { SubpageCanvas } from '@/components/Hero/R3F/SubpageCanvas'
 import { VideoModal } from '@/components/subpage/video-modal'
 import { Button } from '@/components/ui/button'
 import { Project } from '@/types/project'
@@ -39,13 +38,24 @@ export function HeroSection({ project }: { project: Project }) {
             >
               {project.subpage.description}
             </p>
+            <div className="flex justify-center gap-4">
             <Button
               variant="default"
-              className="mt-6 cursor-pointer items-center mx-auto flex !px-32"
+              className={`mt-6 cursor-pointer items-center flex ${project.subpage.link ? '!px-16' : '!px-32 mx-auto'}`}
               onClick={() => setIsPreviewOpen(true)}
             >
               <Play className="size-8" strokeWidth={3} />
             </Button>
+            {project.subpage.link && (
+              <Button
+                variant="default"
+                className="mt-6 cursor-pointer items-center flex type-h25"
+                onClick={() => window.open(project.subpage.link, '_blank')}
+              >
+                Learn More
+              </Button>
+            )}
+            </div>
           </div>
           {/* <div className="flex-1 w-full flex justify-center md:justify-end">
             <div className="w-[320px] h-[260px] sm:w-[420px] sm:h-[320px] md:w-[440px] md:h-[360px]">

@@ -5,27 +5,34 @@ import { Button } from '../ui/button'
 import { useApp } from '@/contexts/AppContext'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '../ui/dropdown-menu'
 import { FaDiscord, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { Mail } from 'lucide-react'
 
 const contacts = {
-    github: {
-      id: "github",
-      label: "GitHub",
-      icon: <FaGithub className="size-8" />,
-      href: "https://github.com/kuba-walczak",
-    },
-    linkedin: {
-      id: "linkedin",
-      label: "LinkedIn",
-      icon: <FaLinkedin className="size-8" />,
-      href: "https://linkedin.com/in/kuba-walczak-dev",
-    },
-    discord: {
-      id: "discord",
-      label: "Discord",
-      icon: <FaDiscord className="size-8" />,
-      href: "https://discord.com/users/1234567890",
-    },
+  github: {
+    id: "github",
+    label: "Kuba-Walczak",
+    icon: <FaGithub className="size-8" />,
+    href: "https://github.com/kuba-walczak",
+  },
+  linkedin: {
+    id: "linkedin",
+    label: "kuba-walczak-dev",
+    icon: <FaLinkedin className="size-8" />,
+    href: "https://linkedin.com/in/kuba-walczak-dev",
+  },
+  mail: {
+    id: "mail",
+    label: "kubawalczak005@gmail.com",
+    icon: <Mail className="size-8" />,
+    href: "mailto:kubawalczak005@gmail.com",
+  },
+  discord: {
+    id: "discord",
+    label: "kuba.walczak",
+    icon: <FaDiscord className="size-8" />,
+    href: "https://discord.com/users/1234567890",
   }
+}
 
 export default function About() {
   const { isMobile } = useApp()
@@ -46,7 +53,7 @@ export default function About() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <img
-                  src="https://PortfolioPullZone.b-cdn.net/pjait-logo.svg?t=2"
+                  src="https://PortfolioPullZone.b-cdn.net/pjait-logo.svg"
                   alt="PJAIT Logo"
                   width={500}
                   height={500}
@@ -86,23 +93,16 @@ export default function About() {
             <span className="type-h25">Education</span>
             <span className="type-h4">Computer Science<span className="mx-2 type-h4">•</span>PJAIT<br/>2024<span className="mx-2 type-h4">→</span>Present</span>
           </div>
+          <div className="flex flex-col sm:flex-row justify-between gap-8">
           <div className="flex flex-col gap-1">
             <span className="type-h25">Location</span>
             <span className="type-h4">Warsaw<span className="mx-2 type-h4">•</span>Poland</span>
           </div>
-          <div className="flex xl:flex-row flex-col gap-8">
-          <Button
-              variant="default"
-              className="mt-6 inline-flex cursor-pointer gap-2 px-6 py-2 type-h25"
-              onClick={() => window.open('https://PortfolioPullZone.b-cdn.net/resume-pl-04-04-2026.pdf', '_blank')}
-            >
-              Resume
-            </Button>
-              <DropdownMenu>
+          <DropdownMenu>
           <DropdownMenuTrigger asChild>
           <Button
               variant="default"
-              className="mt-6 inline-flex cursor-pointer gap-2 px-6 py-2 type-h25"
+              className="mt-6 cursor-pointer gap-2 px-6 py-2 type-h25 mt-auto"
             >
               Contacts
             </Button>
@@ -112,7 +112,6 @@ export default function About() {
               sideOffset={8}
               className={`min-w-[12rem] border-ui-glass backdrop-blur-xl bg-background`}
             >
-              <DropdownMenuLabel className="text-[var(--text-secondary)]">Contacts</DropdownMenuLabel>
               {Object.values(contacts).map((contact) => (
                 <DropdownMenuItem
                   key={contact.id}

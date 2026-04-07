@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { gsap } from "gsap"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Mail } from "lucide-react"
 import { usePathname, useRouter } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarBadge } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
@@ -39,25 +39,31 @@ export function Header() {
   }, [pathname, projects])
 
   const contacts = {
-    github: {
-      id: "github",
-      label: "GitHub",
-      icon: <FaGithub className="size-8" />,
-      href: "https://github.com/kuba-walczak",
-    },
-    linkedin: {
-      id: "linkedin",
-      label: "LinkedIn",
-      icon: <FaLinkedin className="size-8" />,
-      href: "https://linkedin.com/in/kuba-walczak-dev",
-    },
-    discord: {
-      id: "discord",
-      label: "Discord",
-      icon: <FaDiscord className="size-8" />,
-      href: "https://discord.com/users/1234567890",
-    },
-  }
+      github: {
+        id: "github",
+        label: "Kuba-Walczak",
+        icon: <FaGithub className="size-8" />,
+        href: "https://github.com/kuba-walczak",
+      },
+      linkedin: {
+        id: "linkedin",
+        label: "kuba-walczak-dev",
+        icon: <FaLinkedin className="size-8" />,
+        href: "https://linkedin.com/in/kuba-walczak-dev",
+      },
+      mail: {
+        id: "mail",
+        label: "kubawalczak005@gmail.com",
+        icon: <Mail className="size-8" />,
+        href: "mailto:kubawalczak005@gmail.com",
+      },
+      discord: {
+        id: "discord",
+        label: "kuba.walczak",
+        icon: <FaDiscord className="size-8" />,
+        href: "https://discord.com/users/1234567890",
+      }
+    }
 
   const killScrollAnimation = () => {
     if (scrollTweenRef.current) {

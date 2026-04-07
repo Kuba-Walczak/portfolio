@@ -30,7 +30,7 @@ function ModelContent(props: any) {
 
     const { nodes } = useGLTF("https://PortfolioPullZone.b-cdn.net/laptop.glb") as unknown as GLTFResult
 
-    const texture = useLoader(TextureLoader, "https://PortfolioPullZone.b-cdn.net/bake.webp?t=0")
+    const texture = useLoader(TextureLoader, "https://PortfolioPullZone.b-cdn.net/bake.webp")
     texture.flipY = false
     texture.colorSpace = THREE.SRGBColorSpace
     texture.minFilter = THREE.LinearFilter

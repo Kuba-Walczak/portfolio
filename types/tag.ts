@@ -20,10 +20,10 @@ export const Tag = {
         style: "art",
         title: "3D Art"
     },
-    COMING_SOON: {
+    CONTEST: {
         id: "4",
-        style: "comingSoon",
-        title: "Coming Soon"
+        style: "contest",
+        title: "Contest"
     }
 } as const satisfies Record<string, Tag>;
 

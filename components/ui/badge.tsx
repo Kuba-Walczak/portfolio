@@ -19,6 +19,8 @@ const badgeVariants = cva(
           "bg-glass",
         art:
           "bg-glass",
+        contest:
+          "bg-glass",
         outline:
           "[a&]:hover:bg-accent [a&]:hover:text-primary",
       },

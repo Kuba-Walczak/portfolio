@@ -39,7 +39,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   
     const fetchAndUpdate = async () => {
       try {
-        const projects = await fetchProjects("https://PortfolioPullZone.b-cdn.net/projects.json?t=1")
+        const projects = await fetchProjects("https://PortfolioPullZone.b-cdn.net/projects.json")
         setProjects(projects)
         setIsLoading(false)
       } catch (e) {

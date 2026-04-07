@@ -8,6 +8,7 @@ import { useApp } from "@/contexts/AppContext"
 import { useParams } from "next/navigation"
 import Background from "@/components/Background"
 import { useEffect } from "react"
+import { Wrench } from "lucide-react"
 
 export default function ProjectSubpage() {
   const { setAnimationReady } = useApp()
@@ -30,7 +31,7 @@ export default function ProjectSubpage() {
   if (!projectId || !projects) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-[var(--text-secondary)]">Loading project...</p>
+        <p className="text-sm text-[var(--text-secondary)]"></p>
       </main>
     )
   }
@@ -41,6 +42,14 @@ export default function ProjectSubpage() {
         <p className="text-sm text-[var(--text-secondary)]">
           Project not found.
         </p>
+      </main>
+    )
+  }
+
+  if (project.status === 'coming-soon') {
+    return (
+      <main className="min-h-screen flex items-center justify-center">
+        <p className="type-h1">Coming Soon</p>
       </main>
     )
   }

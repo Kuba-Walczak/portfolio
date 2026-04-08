@@ -37,7 +37,7 @@ function ModelContent(props: any) {
     texture.magFilter = THREE.LinearFilter
 
     const isWebKit = /AppleWebKit/.test(navigator.userAgent)
-    const laptopScreenTexture = useVideoTexture(`https://PortfolioPullZone.b-cdn.net/showcase.${isWebKit ? 'mp4' : 'webm'}`, { loop: true, muted: true, playsInline: true, crossOrigin: 'anonymous', start: false })
+    const laptopScreenTexture = useVideoTexture(`https://PortfolioPullZone.b-cdn.net/showcase.${isWebKit ? 'mp4' : 'webm'}?t=1`, { loop: true, muted: true, playsInline: true, crossOrigin: 'anonymous', start: false })
     laptopScreenTexture.flipY = false
     laptopScreenTexture.colorSpace = THREE.SRGBColorSpace
     laptopScreenTexture.minFilter = THREE.LinearFilter
@@ -77,6 +77,11 @@ function ModelContent(props: any) {
         gsap.killTweensOf(heroVideoGlowRef)
         const tl = gsap.timeline()
         tl.to(heroVideoGlowRef, {
+          background: 'radial-gradient(circle,rgb(0, 225, 255) 0%, transparent 50%)',
+          duration: 0.5,
+        })
+        tl.to({}, { duration: 4.5 })
+        tl.to(heroVideoGlowRef, {
           background: 'radial-gradient(circle,rgb(255, 255, 255) 0%, transparent 50%)',
           duration: 0.5,
         })
@@ -87,12 +92,12 @@ function ModelContent(props: any) {
         })
         tl.to({}, { duration: 4.5 })
         tl.to(heroVideoGlowRef, {
-          background: 'radial-gradient(circle,rgb(0, 225, 255) 0%, transparent 50%)',
+          background: 'radial-gradient(circle,rgb(255, 255, 0) 0%, transparent 50%)',
           duration: 0.5,
         })
         tl.to({}, { duration: 4.5 })
         tl.to(heroVideoGlowRef, {
-          background: 'radial-gradient(circle,rgb(255, 251, 0) 0%, transparent 50%)',
+          background: 'radial-gradient(circle,rgb(140, 0, 255) 0%, transparent 50%)',
           duration: 0.5,
         })
         tl.play();

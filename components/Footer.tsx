@@ -12,8 +12,8 @@ export default function Footer() {
             © {currentYear} Kuba Walczak
           </p>
         ) : (
-          <p className="type-h2 text-center">
-            © {currentYear} Developed by Kuba Walczak
+          <p className="type-h2 !capitalize text-center">
+            ©{currentYear} Developed <span className="!lowercase">by</span> Kuba Walczak
           </p>
         )}
       </div>

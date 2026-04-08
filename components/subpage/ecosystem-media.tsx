@@ -5,14 +5,13 @@ import { Card } from "@/components/ui/card"
 import { VideoModal } from "@/components/subpage/video-modal"
 import { Project } from "@/types/project"
 import { MousePointerClick as MousePointerClickIcon } from "lucide-react"
-import Image from "next/image"
 
 function MediaPreview({
   content,
   onOpenVideo,
 }: {
   content: Project["subpage"]["gallery"][number]
-  onOpenVideo: (content: Project["subpage"]["gallery"][number]) => void
+  onOpenVideo: () => void
 }) {
   const isSafari = (() => {
     const ua = navigator.userAgent;
@@ -39,7 +38,7 @@ function MediaPreview({
     return (
       <button
           type="button"
-          onClick={() => onOpenVideo(content)}
+          onClick={onOpenVideo}
           className="relative block h-52 w-full md:h-56"
         >
         <img
@@ -65,7 +64,7 @@ function MediaPreview({
       return (
         <button
           type="button"
-          onClick={() => onOpenVideo(content)}
+          onClick={onOpenVideo}
           className="relative block h-52 w-full md:h-56"
         >
           <video
@@ -83,7 +82,7 @@ function MediaPreview({
     return (
       <button
         type="button"
-        onClick={() => onOpenVideo(content)}
+        onClick={onOpenVideo}
         className="relative block h-52 w-full overflow-hidden md:h-56"
       >
         <div className="absolute inset-0 h-full w-full overflow-hidden [clip-path:inset(0_50%_0_0)]">
@@ -112,7 +111,7 @@ function MediaPreview({
   return (
     <button
       type="button"
-      onClick={() => onOpenVideo(content)}
+      onClick={onOpenVideo}
       className="relative block h-52 w-full md:h-56"
     >
       {isSafari ? (
@@ -139,9 +138,23 @@ function MediaPreview({
 
 export function EcosystemMedia({ project }: { project: Project }) {
   const gallery = project.subpage.gallery
-  const [selectedVideo, setSelectedVideo] = useState<Project["subpage"]["gallery"][number] | null>(null)
-  const onOpenVideo = (content: Project["subpage"]["gallery"][number]) => {
-    setSelectedVideo(content)
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const selectedVideo = selectedIndex !== null ? gallery[selectedIndex] : null
+  const hasPrev = selectedIndex !== null && selectedIndex > 0
+  const hasNext = selectedIndex !== null && selectedIndex < gallery.length - 1
+
+  const onOpenVideo = (index: number) => {
+    setSelectedIndex(index)
+  }
+
+  const onPrev = () => {
+    if (!hasPrev || selectedIndex === null) return
+    setSelectedIndex(selectedIndex - 1)
+  }
+
+  const onNext = () => {
+    if (!hasNext || selectedIndex === null) return
+    setSelectedIndex(selectedIndex + 1)
   }
   return (  
     <section 
@@ -165,9 +178,9 @@ export function EcosystemMedia({ project }: { project: Project }) {
             <Card
               key={`${content.title}-${index}`}
               className="overflow-hidden rounded-xl p-0 transition duration-200 hover:brightness-110 hover:bg-white/5 cursor-pointer"
-              onClick={() => onOpenVideo(content)}
+              onClick={() => onOpenVideo(index)}
             >
-              <MediaPreview content={content} onOpenVideo={setSelectedVideo} />
+              <MediaPreview content={content} onOpenVideo={() => onOpenVideo(index)} />
               <div className="flex items-center gap-3 px-4 py-3">
                 <p className="type-h25">{content.title}</p>
                   <MousePointerClickIcon
@@ -196,7 +209,11 @@ export function EcosystemMedia({ project }: { project: Project }) {
 
       <VideoModal
         isOpen={Boolean(selectedVideo)}
-        onClose={() => setSelectedVideo(null)}
+        onClose={() => setSelectedIndex(null)}
+        onPrev={onPrev}
+        onNext={onNext}
+        hasPrev={hasPrev}
+        hasNext={hasNext}
         title={selectedVideo?.title ?? ""}
         description={
           selectedVideo?.caption ?? "" }

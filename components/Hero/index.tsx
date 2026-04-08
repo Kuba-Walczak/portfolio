@@ -7,7 +7,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Button } from '../ui/button'
 import { useEffect, useRef } from 'react'
-import { useApp } from '@/contexts/AppContext'
+import { useApp } from "@/contexts/AppContext"
 
 gsap.registerPlugin(ScrollTrigger)
 

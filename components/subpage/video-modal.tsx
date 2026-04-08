@@ -123,7 +123,7 @@ export function VideoModal({
 
   if (!isOpen || !primarySrc) return null
 
-  const mediaClassName = "max-h-[80vh] w-full rounded-t-none rounded-b-lg bg-black object-contain"
+  const mediaClassName = "max-h-[80vh] w-full rounded-t-none rounded-b-[var(--bevel-lg)] bg-black object-contain"
 
   return (
     <div

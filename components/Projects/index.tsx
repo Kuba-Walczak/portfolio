@@ -18,7 +18,7 @@ export default function Projects() {
         </h2>
       </div>
     <div
-    className="flex flex-col gap-16 rounded-2xl">
+    className="flex flex-col gap-16 rounded-[var(--bevel-2xl)]">
       <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-8">
         {isLoading ? (
           Array.from({ length: 6 }).map((_, i) => (

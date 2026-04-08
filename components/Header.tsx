@@ -112,7 +112,7 @@ export function Header() {
 
   return (
     <header
-      className={`mx-auto fixed top-0 left-0 right-0 z-50 flex items-center ${isMainPage ? "" : "justify-center"} sm:justify-center px-6 rounded-b-2xl border-ui-glass transition-all duration-200 ${!isAtTop ? "py-2" : "py-4"}`}
+      className={`mx-auto fixed top-0 left-0 right-0 z-50 flex items-center ${isMainPage ? "" : "justify-center"} sm:justify-center px-6 rounded-b-[var(--bevel-2xl)] border-ui-glass transition-all duration-200 ${!isAtTop ? "py-2" : "py-4"}`}
       style={{ maxWidth: "calc(100vh * 1.1)", background: !isAtTop ? "var(--background)" : "var(--glass)" }}
     >
 

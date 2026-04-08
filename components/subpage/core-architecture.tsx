@@ -40,7 +40,7 @@ function FeatureIcon({
 
   return (
     <div
-      className="h-10 w-10 rounded-lg flex items-center justify-center mb-4 text-[var(--primary)]"
+      className="h-10 w-10 rounded-[var(--bevel-lg)] flex items-center justify-center mb-4 text-[var(--primary)]"
     >
       <Icon
         className="h-8 w-8 [&_circle]:stroke-[inherit] [&_ellipse]:stroke-[inherit] [&_line]:stroke-[inherit] [&_path]:stroke-[inherit] [&_polygon]:stroke-[inherit] [&_polyline]:stroke-[inherit] [&_rect]:stroke-[inherit]"

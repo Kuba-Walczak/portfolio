@@ -167,7 +167,7 @@ export function EcosystemMedia({ project }: { project: Project }) {
       </div>
 
       {gallery.length === 0 ? (
-        <Card className="rounded-xl px-5 py-8 text-center">
+        <Card className="rounded-[var(--bevel-xl)] px-5 py-8 text-center">
           <p className="text-sm text-[var(--text-secondary)]">
             No media available for this project yet.
           </p>
@@ -177,7 +177,7 @@ export function EcosystemMedia({ project }: { project: Project }) {
           {gallery.map((content, index) => (
             <Card
               key={`${content.title}-${index}`}
-              className="overflow-hidden rounded-xl p-0 transition duration-200 hover:brightness-110 hover:bg-white/5 cursor-pointer"
+              className="overflow-hidden rounded-[var(--bevel-xl)] p-0 transition duration-200 hover:brightness-110 hover:bg-white/5 cursor-pointer"
               onClick={() => onOpenVideo(index)}
             >
               <MediaPreview content={content} onOpenVideo={() => onOpenVideo(index)} />

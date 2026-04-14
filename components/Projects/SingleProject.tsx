@@ -30,7 +30,7 @@ export function SingleProject({ project }: { project: Project }) {
   return (
         <div
           key={project.id}
-          className={`relative min-w-[200px] md:min-w-[350px] h-[400px] vlg:h-[380px] vxl:h-[410px] v2xl:h-[420px] flex flex-col flex-shrink-0 overflow-hidden rounded-[var(--bevel-2xl)] bg-glass border-ui-glass transition duration-200 hover:brightness-110 hover:bg-white/5 cursor-pointer [font-family:var(--font-manrope)] ${
+          className={`relative min-w-[200px] md:min-w-[350px] h-[400px] vlg:h-[380px] vxl:h-[430px] v2xl:h-[440px] flex flex-col flex-shrink-0 overflow-hidden rounded-[var(--bevel-2xl)] bg-glass border-ui-glass transition duration-200 hover:brightness-110 hover:bg-white/5 cursor-pointer [font-family:var(--font-manrope)] ${
             project.status === 'coming-soon'
               ? 'pointer-events-none' : ''}`}
           onClick={() => {
@@ -100,7 +100,7 @@ export function SingleProject({ project }: { project: Project }) {
                   <defs>
                     <linearGradient
                       id={`click-icon-gradient-${project.id}`}
-                      x1="0%"
+                      x1="100%"
                       y1="0%"
                       x2="100%"
                       y2="100%"
@@ -118,9 +118,9 @@ export function SingleProject({ project }: { project: Project }) {
                   <defs>
                     <linearGradient
                       id={`click-icon-gradient-${project.id}`}
-                      x1="0%"
+                      x1="100%"
                       y1="0%"
-                      x2="100%"
+                      x2="0%"
                       y2="100%"
                     >
                       <stop offset="0%" stopColor="var(--secondary)" />

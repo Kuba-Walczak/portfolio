@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { VideoModal } from '@/components/subpage/video-modal'
 import { Button } from '@/components/ui/button'
 import { Project } from '@/types/content'
-import { Play } from 'lucide-react'
+import { ExternalLinkIcon, Play } from 'lucide-react'
 
 export function HeroSection({ project }: { project: Project }) {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false)
@@ -52,6 +52,7 @@ export function HeroSection({ project }: { project: Project }) {
                 onClick={() => window.open(project.subpage.link, '_blank')}
               >
                 Learn More
+                <ExternalLinkIcon className="size-6" strokeWidth={3} />
               </Button>
             )}
             </div>

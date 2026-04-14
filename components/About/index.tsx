@@ -135,10 +135,17 @@ export default function About() {
             </p>
             <img
               src="https://PortfolioPullZone.b-cdn.net/LandingPage/FaceForeground.webp"
-              className="absolute bottom-0"
+              className="absolute bottom-0 3xl:hidden block"
               alt="About Me"
-              width={500}
-              height={500}
+              width={400}
+              height={400}
+            />
+            <img
+              src="https://PortfolioPullZone.b-cdn.net/LandingPage/FaceForeground.webp"
+              className="absolute bottom-0 3xl:block hidden"
+              alt="About Me"
+              width={450}
+              height={450}
             />
           </div>
         )}

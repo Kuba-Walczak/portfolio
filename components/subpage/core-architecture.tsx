@@ -52,9 +52,9 @@ function FeatureIcon({
           <linearGradient
             id={gradientId}
             gradientUnits="userSpaceOnUse"
-            x1={0}
+            x1={LUCIDE_VIEWBOX}
             y1={0}
-            x2={LUCIDE_VIEWBOX}
+            x2={0}
             y2={LUCIDE_VIEWBOX}
           >
             <stop offset="0%" stopColor="var(--secondary)" />

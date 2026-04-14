@@ -120,7 +120,7 @@ function MediaPreview({
        className="h-full w-full object-cover cursor-pointer"
        muted
        playsInline
-        poster={content.poster}
+       poster={content.poster}
       />
       ) : (
         <video
@@ -129,6 +129,7 @@ function MediaPreview({
           muted
           playsInline
           preload="metadata"
+          poster={content.poster}
         />
       )}
       <div className="pointer-events-none absolute inset-0 bg-black/20" />
@@ -212,9 +213,9 @@ export function EcosystemMedia({ project }: { project: Project }) {
                       <defs>
                         <linearGradient
                           id={`ecosystem-media-icon-gradient-${project.id}-${index}`}
-                          x1="0%"
-                          y1="0%"
-                          x2="100%"
+                          x1="100%"
+                          y1="100%"
+                          x2="0%"
                           y2="100%"
                         >
                           <stop offset="0%" stopColor="var(--secondary)" />
@@ -241,6 +242,7 @@ export function EcosystemMedia({ project }: { project: Project }) {
           selectedVideo?.caption ?? "" }
         primarySrc={selectedVideo?.media[0]?.src}
         secondarySrc={selectedVideo?.type === "before-after" ? selectedVideo?.media[1]?.src : undefined}
+        isPhone={isPhone}
       />
     </section>
   )

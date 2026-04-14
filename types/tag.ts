@@ -15,6 +15,11 @@ export const Tag = {
         style: "technicalArt",
         title: "TA"
     },
+    VFX: {
+        id: "5",
+        style: "vfx",
+        title: "VFX"
+    },
     ART: {
         id: "3",
         style: "art",

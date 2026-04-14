@@ -17,6 +17,8 @@ const badgeVariants = cva(
           "bg-glass",
         technicalArt:
           "bg-glass",
+        vfx:
+          "bg-glass",
         art:
           "bg-glass",
         contest:

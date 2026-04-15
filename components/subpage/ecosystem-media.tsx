@@ -194,9 +194,9 @@ export function EcosystemMedia({ project }: { project: Project }) {
                       <defs>
                         <linearGradient
                           id={`ecosystem-media-icon-gradient-${project.id}-${index}`}
-                          x1="0%"
+                          x1="100%"
                           y1="0%"
-                          x2="100%"
+                          x2="0%"
                           y2="100%"
                         >
                           <stop offset="0%" stopColor="var(--secondary)" />
@@ -214,7 +214,7 @@ export function EcosystemMedia({ project }: { project: Project }) {
                         <linearGradient
                           id={`ecosystem-media-icon-gradient-${project.id}-${index}`}
                           x1="100%"
-                          y1="100%"
+                          y1="0%"
                           x2="0%"
                           y2="100%"
                         >

@@ -29,8 +29,12 @@ export default function Projects() {
             </Card>
           ))
         ) : (
-          projects?.map((project) => (
-            <SingleProject key={project.id} project={project}/>
+          projects?.map((project, index) => (
+            <SingleProject
+              key={project.id}
+              project={project}
+              showStar={index === 0}
+            />
           ))
         )}
       </div>

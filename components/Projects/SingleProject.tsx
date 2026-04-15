@@ -3,10 +3,16 @@ import { Badge } from "../ui/badge"
 import { gsap } from "gsap"
 import { getTag, Tag } from "@/types/tag"
 import { useRef, useEffect } from "react"
-import { MousePointerClickIcon, PointerIcon } from "lucide-react"
+import { MousePointerClickIcon, PointerIcon, StarIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
 
-export function SingleProject({ project }: { project: Project }) {
+export function SingleProject({
+  project,
+  showStar = false,
+}: {
+  project: Project
+  showStar?: boolean
+}) {
     const router = useRouter()
     const scrollAnimationRef = useRef<gsap.core.Tween | null>(null)
     const isPhone = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
@@ -38,6 +44,28 @@ export function SingleProject({ project }: { project: Project }) {
             router.push(`/${project.id}`)
           }}
           >
+        {showStar && (
+          <StarIcon
+            aria-hidden
+            className="pointer-events-none absolute right-6 top-6 z-20 size-6 shrink-0"
+            fill={`url(#star-icon-gradient-${project.id})`}
+            stroke={`url(#star-icon-gradient-${project.id})`}
+            strokeWidth={1}
+          >
+            <defs>
+              <linearGradient
+                id={`star-icon-gradient-${project.id}`}
+                x1="100%"
+                y1="0%"
+                x2="0%"
+                y2="100%"
+              >
+                <stop offset="0%" stopColor="#ffc400" />
+                <stop offset="100%" stopColor="#ffAE00" />
+              </linearGradient>
+            </defs>
+          </StarIcon>
+        )}
         {/* Header */}
         <div className="relative flex-1 overflow-hidden min-h-0">
             <img
@@ -56,7 +84,7 @@ export function SingleProject({ project }: { project: Project }) {
             {project.status === 'coming-soon' && (
               <>
                 <div className="absolute inset-0 z-10 bg-gray-900/95 opacity-90 grayscale" />
-                <p className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 text-center type-h2 opacity-40 !text-nowrap">
+                <p className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 text-center type-h2 opacity-20 !text-nowrap">
                   COMING SOON
                 </p>
               </>
@@ -102,7 +130,7 @@ export function SingleProject({ project }: { project: Project }) {
                       id={`click-icon-gradient-${project.id}`}
                       x1="100%"
                       y1="0%"
-                      x2="100%"
+                      x2="0%"
                       y2="100%"
                     >
                       <stop offset="0%" stopColor="var(--secondary)" />
